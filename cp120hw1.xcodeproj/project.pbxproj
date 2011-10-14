@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F89CB831448280F00A834AD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F89CB821448280F00A834AD /* Cocoa.framework */; };
+		3F89CB8D1448280F00A834AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F89CB8B1448280F00A834AD /* InfoPlist.strings */; };
+		3F89CB8F1448280F00A834AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F89CB8E1448280F00A834AD /* main.m */; };
+		3F89CB931448280F00A834AD /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F89CB911448280F00A834AD /* Credits.rtf */; };
+		3F89CB961448280F00A834AD /* cp120hw1AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F89CB951448280F00A834AD /* cp120hw1AppDelegate.m */; };
+		3F89CB991448280F00A834AD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89CB971448280F00A834AD /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F89CB7E1448280F00A834AD /* cp120hw1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cp120hw1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F89CB821448280F00A834AD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3F89CB851448280F00A834AD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3F89CB861448280F00A834AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3F89CB871448280F00A834AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F89CB8A1448280F00A834AD /* cp120hw1-Info.plist */ = {isa = PBXFileReference; path = "cp120hw1-Info.plist"; sourceTree = "<group>"; };
+		3F89CB8C1448280F00A834AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F89CB8E1448280F00A834AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F89CB901448280F00A834AD /* cp120hw1-Prefix.pch */ = {isa = PBXFileReference; path = "cp120hw1-Prefix.pch"; sourceTree = "<group>"; };
+		3F89CB921448280F00A834AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		3F89CB941448280F00A834AD /* cp120hw1AppDelegate.h */ = {isa = PBXFileReference; path = cp120hw1AppDelegate.h; sourceTree = "<group>"; };
+		3F89CB951448280F00A834AD /* cp120hw1AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cp120hw1AppDelegate.m; sourceTree = "<group>"; };
+		3F89CB981448280F00A834AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F89CB7B1448280F00A834AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F89CB831448280F00A834AD /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F89CB731448280F00A834AD = {
+			isa = PBXGroup;
+			children = (
+				3F89CB881448280F00A834AD /* cp120hw1 */,
+				3F89CB811448280F00A834AD /* Frameworks */,
+				3F89CB7F1448280F00A834AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F89CB7F1448280F00A834AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F89CB7E1448280F00A834AD /* cp120hw1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F89CB811448280F00A834AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F89CB821448280F00A834AD /* Cocoa.framework */,
+				3F89CB841448280F00A834AD /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F89CB841448280F00A834AD /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F89CB851448280F00A834AD /* AppKit.framework */,
+				3F89CB861448280F00A834AD /* CoreData.framework */,
+				3F89CB871448280F00A834AD /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		3F89CB881448280F00A834AD /* cp120hw1 */ = {
+			isa = PBXGroup;
+			children = (
+				3F89CB941448280F00A834AD /* cp120hw1AppDelegate.h */,
+				3F89CB951448280F00A834AD /* cp120hw1AppDelegate.m */,
+				3F89CB971448280F00A834AD /* MainMenu.xib */,
+				3F89CB891448280F00A834AD /* Supporting Files */,
+			);
+			path = cp120hw1;
+			sourceTree = "<group>";
+		};
+		3F89CB891448280F00A834AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F89CB8A1448280F00A834AD /* cp120hw1-Info.plist */,
+				3F89CB8B1448280F00A834AD /* InfoPlist.strings */,
+				3F89CB8E1448280F00A834AD /* main.m */,
+				3F89CB901448280F00A834AD /* cp120hw1-Prefix.pch */,
+				3F89CB911448280F00A834AD /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F89CB7D1448280F00A834AD /* cp120hw1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F89CB9C1448280F00A834AD /* Build configuration list for PBXNativeTarget "cp120hw1" */;
+			buildPhases = (
+				3F89CB7A1448280F00A834AD /* Sources */,
+				3F89CB7B1448280F00A834AD /* Frameworks */,
+				3F89CB7C1448280F00A834AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cp120hw1;
+			productName = cp120hw1;
+			productReference = 3F89CB7E1448280F00A834AD /* cp120hw1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F89CB751448280F00A834AD /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3F89CB781448280F00A834AD /* Build configuration list for PBXProject "cp120hw1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F89CB731448280F00A834AD;
+			productRefGroup = 3F89CB7F1448280F00A834AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F89CB7D1448280F00A834AD /* cp120hw1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F89CB7C1448280F00A834AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F89CB8D1448280F00A834AD /* InfoPlist.strings in Resources */,
+				3F89CB931448280F00A834AD /* Credits.rtf in Resources */,
+				3F89CB991448280F00A834AD /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F89CB7A1448280F00A834AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F89CB8F1448280F00A834AD /* main.m in Sources */,
+				3F89CB961448280F00A834AD /* cp120hw1AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F89CB8B1448280F00A834AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F89CB8C1448280F00A834AD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3F89CB911448280F00A834AD /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F89CB921448280F00A834AD /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		3F89CB971448280F00A834AD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F89CB981448280F00A834AD /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F89CB9A1448280F00A834AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3F89CB9B1448280F00A834AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3F89CB9D1448280F00A834AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cp120hw1/cp120hw1-Prefix.pch";
+				INFOPLIST_FILE = "cp120hw1/cp120hw1-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3F89CB9E1448280F00A834AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cp120hw1/cp120hw1-Prefix.pch";
+				INFOPLIST_FILE = "cp120hw1/cp120hw1-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F89CB781448280F00A834AD /* Build configuration list for PBXProject "cp120hw1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F89CB9A1448280F00A834AD /* Debug */,
+				3F89CB9B1448280F00A834AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F89CB9C1448280F00A834AD /* Build configuration list for PBXNativeTarget "cp120hw1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F89CB9D1448280F00A834AD /* Debug */,
+				3F89CB9E1448280F00A834AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F89CB751448280F00A834AD /* Project object */;
+}
