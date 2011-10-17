@@ -21,12 +21,12 @@
 		3F89CB851448280F00A834AD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3F89CB861448280F00A834AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3F89CB871448280F00A834AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3F89CB8A1448280F00A834AD /* cp120hw1-Info.plist */ = {isa = PBXFileReference; path = "cp120hw1-Info.plist"; sourceTree = "<group>"; };
+		3F89CB8A1448280F00A834AD /* cp120hw1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cp120hw1-Info.plist"; sourceTree = "<group>"; };
 		3F89CB8C1448280F00A834AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F89CB8E1448280F00A834AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3F89CB901448280F00A834AD /* cp120hw1-Prefix.pch */ = {isa = PBXFileReference; path = "cp120hw1-Prefix.pch"; sourceTree = "<group>"; };
+		3F89CB901448280F00A834AD /* cp120hw1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cp120hw1-Prefix.pch"; sourceTree = "<group>"; };
 		3F89CB921448280F00A834AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		3F89CB941448280F00A834AD /* cp120hw1AppDelegate.h */ = {isa = PBXFileReference; path = cp120hw1AppDelegate.h; sourceTree = "<group>"; };
+		3F89CB941448280F00A834AD /* cp120hw1AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cp120hw1AppDelegate.h; sourceTree = "<group>"; };
 		3F89CB951448280F00A834AD /* cp120hw1AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cp120hw1AppDelegate.m; sourceTree = "<group>"; };
 		3F89CB981448280F00A834AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
