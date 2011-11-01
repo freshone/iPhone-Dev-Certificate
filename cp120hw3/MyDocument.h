@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Meeting.h"
 
 @interface MyDocument : NSDocument {
+    Meeting *meeting;
 }
 
 @end
