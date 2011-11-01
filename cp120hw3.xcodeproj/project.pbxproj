@@ -14,6 +14,8 @@
 		3F4B10DD145D1C5600417D62 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B10DC145D1C5600417D62 /* MyDocument.m */; };
 		3F4B10E0145D1C5600417D62 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4B10DE145D1C5600417D62 /* MyDocument.xib */; };
 		3F4B10E3145D1C5700417D62 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4B10E1145D1C5700417D62 /* MainMenu.xib */; };
+		3F4B10EF145D1CCD00417D62 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B10EA145D1CCD00417D62 /* Meeting.m */; };
+		3F4B10F1145D1CCD00417D62 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B10EE145D1CCD00417D62 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +24,19 @@
 		3F4B10CC145D1C5600417D62 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3F4B10CD145D1C5600417D62 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3F4B10CE145D1C5600417D62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3F4B10D1145D1C5600417D62 /* cp120hw3-Info.plist */ = {isa = PBXFileReference; path = "cp120hw3-Info.plist"; sourceTree = "<group>"; };
+		3F4B10D1145D1C5600417D62 /* cp120hw3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cp120hw3-Info.plist"; sourceTree = "<group>"; };
 		3F4B10D3145D1C5600417D62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F4B10D5145D1C5600417D62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3F4B10D7145D1C5600417D62 /* cp120hw3-Prefix.pch */ = {isa = PBXFileReference; path = "cp120hw3-Prefix.pch"; sourceTree = "<group>"; };
+		3F4B10D7145D1C5600417D62 /* cp120hw3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cp120hw3-Prefix.pch"; sourceTree = "<group>"; };
 		3F4B10D9145D1C5600417D62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		3F4B10DB145D1C5600417D62 /* MyDocument.h */ = {isa = PBXFileReference; path = MyDocument.h; sourceTree = "<group>"; };
+		3F4B10DB145D1C5600417D62 /* MyDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
 		3F4B10DC145D1C5600417D62 /* MyDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
 		3F4B10DF145D1C5600417D62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		3F4B10E2145D1C5700417D62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3F4B10E9145D1CCD00417D62 /* Meeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meeting.h; sourceTree = "<group>"; };
+		3F4B10EA145D1CCD00417D62 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meeting.m; sourceTree = "<group>"; };
+		3F4B10ED145D1CCD00417D62 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		3F4B10EE145D1CCD00417D62 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,10 @@
 		3F4B10CF145D1C5600417D62 /* cp120hw3 */ = {
 			isa = PBXGroup;
 			children = (
+				3F4B10E9145D1CCD00417D62 /* Meeting.h */,
+				3F4B10EA145D1CCD00417D62 /* Meeting.m */,
+				3F4B10ED145D1CCD00417D62 /* Person.h */,
+				3F4B10EE145D1CCD00417D62 /* Person.m */,
 				3F4B10DB145D1C5600417D62 /* MyDocument.h */,
 				3F4B10DC145D1C5600417D62 /* MyDocument.m */,
 				3F4B10DE145D1C5600417D62 /* MyDocument.xib */,
@@ -168,6 +178,8 @@
 			files = (
 				3F4B10D6145D1C5600417D62 /* main.m in Sources */,
 				3F4B10DD145D1C5600417D62 /* MyDocument.m in Sources */,
+				3F4B10EF145D1CCD00417D62 /* Meeting.m in Sources */,
+				3F4B10F1145D1CCD00417D62 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +307,7 @@
 				3F4B10E8145D1C5700417D62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
