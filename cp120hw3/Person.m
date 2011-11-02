@@ -16,9 +16,28 @@
 - (id)init {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        name = @"New Person";
+        hourlyPay = 0.0;
     }
     
+    return self;
+}
+
+- (void)dealloc {
+    [name release];
+    [super dealloc];
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:name forKey:@"name"];
+    [coder encodeFloat:hourlyPay forKey:@"hourlyPay"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    name = [[coder decodeObjectForKey:@"name"] retain];
+    hourlyPay = [coder decodeFloatForKey:@"hourlyPay"];
     return self;
 }
 

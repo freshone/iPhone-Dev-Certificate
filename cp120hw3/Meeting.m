@@ -30,6 +30,22 @@
     [participantList release];
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:startDateTime forKey:@"startDateTime"];
+    [coder encodeObject:endDateTime forKey:@"endDateTime"];
+    [coder encodeObject:participantList forKey:@"participantList"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    [super init];
+    startDateTime = [[coder decodeObjectForKey:@"startDateTime"] retain];
+    endDateTime = [[coder decodeObjectForKey:@"endDateTime"] retain];
+    participantList = [[coder decodeObjectForKey:@"participantList"] retain];
+    return self;
+}
+
 - (void)startMeeting {
     [self setEndDateTime:nil];
     [self setStartDateTime:[NSDate date]];
