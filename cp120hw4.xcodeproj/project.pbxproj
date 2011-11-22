@@ -16,10 +16,14 @@
 		3F4B10E3145D1C5700417D62 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4B10E1145D1C5700417D62 /* MainMenu.xib */; };
 		3F4B10EF145D1CCD00417D62 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B10EA145D1CCD00417D62 /* Meeting.m */; };
 		3F4B10F1145D1CCD00417D62 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B10EE145D1CCD00417D62 /* Person.m */; };
+		3F5A59371471154C00D19054 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A59361471154C00D19054 /* AppController.m */; };
+		3F5A593A147115E400D19054 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5939147115E400D19054 /* PreferenceController.m */; };
+		3F5A593C147116F700D19054 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A593B147116F700D19054 /* Preferences.xib */; };
+		3FC21DA4146FBD5B00D4BD9B /* clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3FC21DA3146FBD5B00D4BD9B /* clock.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F4B10C5145D1C5600417D62 /* cp120hw4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cp120hw4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4B10C5145D1C5600417D62 /* Meeting Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meeting Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4B10C9145D1C5600417D62 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3F4B10CC145D1C5600417D62 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3F4B10CD145D1C5600417D62 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -37,6 +41,12 @@
 		3F4B10EA145D1CCD00417D62 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meeting.m; sourceTree = "<group>"; };
 		3F4B10ED145D1CCD00417D62 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		3F4B10EE145D1CCD00417D62 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		3F5A59351471154C00D19054 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		3F5A59361471154C00D19054 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		3F5A5938147115E400D19054 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		3F5A5939147115E400D19054 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		3F5A593B147116F700D19054 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		3FC21DA3146FBD5B00D4BD9B /* clock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = clock.icns; path = ../clock.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +73,7 @@
 		3F4B10C6145D1C5600417D62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F4B10C5145D1C5600417D62 /* cp120hw4.app */,
+				3F4B10C5145D1C5600417D62 /* Meeting Tracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,10 +104,16 @@
 				3F4B10EA145D1CCD00417D62 /* Meeting.m */,
 				3F4B10ED145D1CCD00417D62 /* Person.h */,
 				3F4B10EE145D1CCD00417D62 /* Person.m */,
+				3F5A59351471154C00D19054 /* AppController.h */,
+				3F5A59361471154C00D19054 /* AppController.m */,
 				3F4B10DB145D1C5600417D62 /* MyDocument.h */,
 				3F4B10DC145D1C5600417D62 /* MyDocument.m */,
+				3F5A5938147115E400D19054 /* PreferenceController.h */,
+				3F5A5939147115E400D19054 /* PreferenceController.m */,
 				3F4B10DE145D1C5600417D62 /* MyDocument.xib */,
 				3F4B10E1145D1C5700417D62 /* MainMenu.xib */,
+				3F5A593B147116F700D19054 /* Preferences.xib */,
+				3FC21DA3146FBD5B00D4BD9B /* clock.icns */,
 				3F4B10D0145D1C5600417D62 /* Supporting Files */,
 			);
 			path = cp120hw4;
@@ -132,7 +148,7 @@
 			);
 			name = cp120hw4;
 			productName = cp120hw3;
-			productReference = 3F4B10C5145D1C5600417D62 /* cp120hw4.app */;
+			productReference = 3F4B10C5145D1C5600417D62 /* Meeting Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,6 +182,8 @@
 				3F4B10DA145D1C5600417D62 /* Credits.rtf in Resources */,
 				3F4B10E0145D1C5600417D62 /* MyDocument.xib in Resources */,
 				3F4B10E3145D1C5700417D62 /* MainMenu.xib in Resources */,
+				3FC21DA4146FBD5B00D4BD9B /* clock.icns in Resources */,
+				3F5A593C147116F700D19054 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +198,8 @@
 				3F4B10DD145D1C5600417D62 /* MyDocument.m in Sources */,
 				3F4B10EF145D1CCD00417D62 /* Meeting.m in Sources */,
 				3F4B10F1145D1CCD00417D62 /* Person.m in Sources */,
+				3F5A59371471154C00D19054 /* AppController.m in Sources */,
+				3F5A593A147115E400D19054 /* PreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +292,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cp120hw4/cp120hw4-Prefix.pch";
 				INFOPLIST_FILE = "cp120hw4/cp120hw4-Info.plist";
-				PRODUCT_NAME = cp120hw4;
+				PRODUCT_NAME = "Meeting Tracker";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -283,7 +303,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cp120hw4/cp120hw4-Prefix.pch";
 				INFOPLIST_FILE = "cp120hw4/cp120hw4-Info.plist";
-				PRODUCT_NAME = cp120hw4;
+				PRODUCT_NAME = "Meeting Tracker";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
