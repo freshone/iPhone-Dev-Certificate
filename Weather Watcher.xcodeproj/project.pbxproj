@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F294CF4148DBBCB006E59C8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F294CF3148DBBCB006E59C8 /* Cocoa.framework */; };
+		3F294CFE148DBBCB006E59C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F294CFC148DBBCB006E59C8 /* InfoPlist.strings */; };
+		3F294D00148DBBCB006E59C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294CFF148DBBCB006E59C8 /* main.m */; };
+		3F294D04148DBBCB006E59C8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D02148DBBCB006E59C8 /* Credits.rtf */; };
+		3F294D07148DBBCB006E59C8 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294D06148DBBCB006E59C8 /* MyDocument.m */; };
+		3F294D0A148DBBCB006E59C8 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D08148DBBCB006E59C8 /* MyDocument.xib */; };
+		3F294D0D148DBBCC006E59C8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D0B148DBBCC006E59C8 /* MainMenu.xib */; };
+		3F294D10148DBBCC006E59C8 /* MyDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F294D0E148DBBCC006E59C8 /* MyDocument.xcdatamodeld */; };
+		3F294D18148DBBCC006E59C8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F294D17148DBBCC006E59C8 /* SenTestingKit.framework */; };
+		3F294D19148DBBCC006E59C8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F294CF3148DBBCB006E59C8 /* Cocoa.framework */; };
+		3F294D21148DBBCC006E59C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D1F148DBBCC006E59C8 /* InfoPlist.strings */; };
+		3F294D23148DBBCC006E59C8 /* Weather_WatcherTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D22148DBBCC006E59C8 /* Weather_WatcherTests.h */; };
+		3F294D25148DBBCC006E59C8 /* Weather_WatcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294D24148DBBCC006E59C8 /* Weather_WatcherTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F294D1A148DBBCC006E59C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F294CE6148DBBCB006E59C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F294CEE148DBBCB006E59C8;
+			remoteInfo = "Weather Watcher";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F294CEF148DBBCB006E59C8 /* Weather Watcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Watcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F294CF3148DBBCB006E59C8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3F294CF6148DBBCB006E59C8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3F294CF7148DBBCB006E59C8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3F294CF8148DBBCB006E59C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F294CFB148DBBCB006E59C8 /* Weather Watcher-Info.plist */ = {isa = PBXFileReference; path = "Weather Watcher-Info.plist"; sourceTree = "<group>"; };
+		3F294CFD148DBBCB006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F294CFF148DBBCB006E59C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F294D01148DBBCB006E59C8 /* Weather Watcher-Prefix.pch */ = {isa = PBXFileReference; path = "Weather Watcher-Prefix.pch"; sourceTree = "<group>"; };
+		3F294D03148DBBCB006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		3F294D05148DBBCB006E59C8 /* MyDocument.h */ = {isa = PBXFileReference; path = MyDocument.h; sourceTree = "<group>"; };
+		3F294D06148DBBCB006E59C8 /* MyDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
+		3F294D09148DBBCB006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyDocument.xib; sourceTree = "<group>"; };
+		3F294D0C148DBBCC006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3F294D0F148DBBCC006E59C8 /* MyDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDocument.xcdatamodel; sourceTree = "<group>"; };
+		3F294D16148DBBCC006E59C8 /* Weather WatcherTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather WatcherTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F294D17148DBBCC006E59C8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3F294D1E148DBBCC006E59C8 /* Weather WatcherTests-Info.plist */ = {isa = PBXFileReference; path = "Weather WatcherTests-Info.plist"; sourceTree = "<group>"; };
+		3F294D20148DBBCC006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F294D22148DBBCC006E59C8 /* Weather_WatcherTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather_WatcherTests.h; sourceTree = "<group>"; };
+		3F294D24148DBBCC006E59C8 /* Weather_WatcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather_WatcherTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F294CEC148DBBCB006E59C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F294CF4148DBBCB006E59C8 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F294D12148DBBCC006E59C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F294D18148DBBCC006E59C8 /* SenTestingKit.framework in Frameworks */,
+				3F294D19148DBBCC006E59C8 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F294CE4148DBBCB006E59C8 = {
+			isa = PBXGroup;
+			children = (
+				3F294CF9148DBBCB006E59C8 /* Weather Watcher */,
+				3F294D1C148DBBCC006E59C8 /* Weather WatcherTests */,
+				3F294CF2148DBBCB006E59C8 /* Frameworks */,
+				3F294CF0148DBBCB006E59C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F294CF0148DBBCB006E59C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F294CEF148DBBCB006E59C8 /* Weather Watcher.app */,
+				3F294D16148DBBCC006E59C8 /* Weather WatcherTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F294CF2148DBBCB006E59C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F294CF3148DBBCB006E59C8 /* Cocoa.framework */,
+				3F294D17148DBBCC006E59C8 /* SenTestingKit.framework */,
+				3F294CF5148DBBCB006E59C8 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F294CF5148DBBCB006E59C8 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F294CF6148DBBCB006E59C8 /* AppKit.framework */,
+				3F294CF7148DBBCB006E59C8 /* CoreData.framework */,
+				3F294CF8148DBBCB006E59C8 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		3F294CF9148DBBCB006E59C8 /* Weather Watcher */ = {
+			isa = PBXGroup;
+			children = (
+				3F294D05148DBBCB006E59C8 /* MyDocument.h */,
+				3F294D06148DBBCB006E59C8 /* MyDocument.m */,
+				3F294D08148DBBCB006E59C8 /* MyDocument.xib */,
+				3F294D0B148DBBCC006E59C8 /* MainMenu.xib */,
+				3F294D0E148DBBCC006E59C8 /* MyDocument.xcdatamodeld */,
+				3F294CFA148DBBCB006E59C8 /* Supporting Files */,
+			);
+			path = "Weather Watcher";
+			sourceTree = "<group>";
+		};
+		3F294CFA148DBBCB006E59C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F294CFB148DBBCB006E59C8 /* Weather Watcher-Info.plist */,
+				3F294CFC148DBBCB006E59C8 /* InfoPlist.strings */,
+				3F294CFF148DBBCB006E59C8 /* main.m */,
+				3F294D01148DBBCB006E59C8 /* Weather Watcher-Prefix.pch */,
+				3F294D02148DBBCB006E59C8 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F294D1C148DBBCC006E59C8 /* Weather WatcherTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F294D22148DBBCC006E59C8 /* Weather_WatcherTests.h */,
+				3F294D24148DBBCC006E59C8 /* Weather_WatcherTests.m */,
+				3F294D1D148DBBCC006E59C8 /* Supporting Files */,
+			);
+			path = "Weather WatcherTests";
+			sourceTree = "<group>";
+		};
+		3F294D1D148DBBCC006E59C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F294D1E148DBBCC006E59C8 /* Weather WatcherTests-Info.plist */,
+				3F294D1F148DBBCC006E59C8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F294CEE148DBBCB006E59C8 /* Weather Watcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F294D28148DBBCC006E59C8 /* Build configuration list for PBXNativeTarget "Weather Watcher" */;
+			buildPhases = (
+				3F294CEB148DBBCB006E59C8 /* Sources */,
+				3F294CEC148DBBCB006E59C8 /* Frameworks */,
+				3F294CED148DBBCB006E59C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Weather Watcher";
+			productName = "Weather Watcher";
+			productReference = 3F294CEF148DBBCB006E59C8 /* Weather Watcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F294D15148DBBCC006E59C8 /* Weather WatcherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F294D2B148DBBCC006E59C8 /* Build configuration list for PBXNativeTarget "Weather WatcherTests" */;
+			buildPhases = (
+				3F294D11148DBBCC006E59C8 /* Sources */,
+				3F294D12148DBBCC006E59C8 /* Frameworks */,
+				3F294D13148DBBCC006E59C8 /* Resources */,
+				3F294D14148DBBCC006E59C8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F294D1B148DBBCC006E59C8 /* PBXTargetDependency */,
+			);
+			name = "Weather WatcherTests";
+			productName = "Weather WatcherTests";
+			productReference = 3F294D16148DBBCC006E59C8 /* Weather WatcherTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F294CE6148DBBCB006E59C8 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3F294CE9148DBBCB006E59C8 /* Build configuration list for PBXProject "Weather Watcher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F294CE4148DBBCB006E59C8;
+			productRefGroup = 3F294CF0148DBBCB006E59C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F294CEE148DBBCB006E59C8 /* Weather Watcher */,
+				3F294D15148DBBCC006E59C8 /* Weather WatcherTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F294CED148DBBCB006E59C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F294CFE148DBBCB006E59C8 /* InfoPlist.strings in Resources */,
+				3F294D04148DBBCB006E59C8 /* Credits.rtf in Resources */,
+				3F294D0A148DBBCB006E59C8 /* MyDocument.xib in Resources */,
+				3F294D0D148DBBCC006E59C8 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F294D13148DBBCC006E59C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F294D21148DBBCC006E59C8 /* InfoPlist.strings in Resources */,
+				3F294D23148DBBCC006E59C8 /* Weather_WatcherTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F294D14148DBBCC006E59C8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F294CEB148DBBCB006E59C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F294D00148DBBCB006E59C8 /* main.m in Sources */,
+				3F294D07148DBBCB006E59C8 /* MyDocument.m in Sources */,
+				3F294D10148DBBCC006E59C8 /* MyDocument.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F294D11148DBBCC006E59C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F294D25148DBBCC006E59C8 /* Weather_WatcherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F294D1B148DBBCC006E59C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F294CEE148DBBCB006E59C8 /* Weather Watcher */;
+			targetProxy = 3F294D1A148DBBCC006E59C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F294CFC148DBBCB006E59C8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F294CFD148DBBCB006E59C8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3F294D02148DBBCB006E59C8 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F294D03148DBBCB006E59C8 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		3F294D08148DBBCB006E59C8 /* MyDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F294D09148DBBCB006E59C8 /* en */,
+			);
+			name = MyDocument.xib;
+			sourceTree = "<group>";
+		};
+		3F294D0B148DBBCC006E59C8 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F294D0C148DBBCC006E59C8 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		3F294D1F148DBBCC006E59C8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F294D20148DBBCC006E59C8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F294D26148DBBCC006E59C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3F294D27148DBBCC006E59C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3F294D29148DBBCC006E59C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Weather Watcher/Weather Watcher-Prefix.pch";
+				INFOPLIST_FILE = "Weather Watcher/Weather Watcher-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3F294D2A148DBBCC006E59C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Weather Watcher/Weather Watcher-Prefix.pch";
+				INFOPLIST_FILE = "Weather Watcher/Weather Watcher-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3F294D2C148DBBCC006E59C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Weather Watcher.app/Contents/MacOS/Weather Watcher";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Weather Watcher/Weather Watcher-Prefix.pch";
+				INFOPLIST_FILE = "Weather WatcherTests/Weather WatcherTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3F294D2D148DBBCC006E59C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Weather Watcher.app/Contents/MacOS/Weather Watcher";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Weather Watcher/Weather Watcher-Prefix.pch";
+				INFOPLIST_FILE = "Weather WatcherTests/Weather WatcherTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F294CE9148DBBCB006E59C8 /* Build configuration list for PBXProject "Weather Watcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F294D26148DBBCC006E59C8 /* Debug */,
+				3F294D27148DBBCC006E59C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F294D28148DBBCC006E59C8 /* Build configuration list for PBXNativeTarget "Weather Watcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F294D29148DBBCC006E59C8 /* Debug */,
+				3F294D2A148DBBCC006E59C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3F294D2B148DBBCC006E59C8 /* Build configuration list for PBXNativeTarget "Weather WatcherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F294D2C148DBBCC006E59C8 /* Debug */,
+				3F294D2D148DBBCC006E59C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F294D0E148DBBCC006E59C8 /* MyDocument.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F294D0F148DBBCC006E59C8 /* MyDocument.xcdatamodel */,
+			);
+			currentVersion = 3F294D0F148DBBCC006E59C8 /* MyDocument.xcdatamodel */;
+			path = MyDocument.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3F294CE6148DBBCB006E59C8 /* Project object */;
+}
