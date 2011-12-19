@@ -20,6 +20,8 @@
 		3F294D21148DBBCC006E59C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D1F148DBBCC006E59C8 /* InfoPlist.strings */; };
 		3F294D23148DBBCC006E59C8 /* Weather_WatcherTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 3F294D22148DBBCC006E59C8 /* Weather_WatcherTests.h */; };
 		3F294D25148DBBCC006E59C8 /* Weather_WatcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294D24148DBBCC006E59C8 /* Weather_WatcherTests.m */; };
+		3F294D3A14970FD5006E59C8 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294D3914970FD5006E59C8 /* Station.m */; };
+		3F294D3D1497100C006E59C8 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294D3C1497100C006E59C8 /* Observation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		3F294D20148DBBCC006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F294D22148DBBCC006E59C8 /* Weather_WatcherTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather_WatcherTests.h; sourceTree = "<group>"; };
 		3F294D24148DBBCC006E59C8 /* Weather_WatcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather_WatcherTests.m; sourceTree = "<group>"; };
+		3F294D3814970FD5006E59C8 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		3F294D3914970FD5006E59C8 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		3F294D3B1497100C006E59C8 /* Observation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observation.h; sourceTree = "<group>"; };
+		3F294D3C1497100C006E59C8 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +129,7 @@
 				3F294D06148DBBCB006E59C8 /* MyDocument.m */,
 				3F294D08148DBBCB006E59C8 /* MyDocument.xib */,
 				3F294D0B148DBBCC006E59C8 /* MainMenu.xib */,
-				3F294D0E148DBBCC006E59C8 /* MyDocument.xcdatamodeld */,
+				3F294D3E14975132006E59C8 /* Core Data */,
 				3F294CFA148DBBCB006E59C8 /* Supporting Files */,
 			);
 			path = "Weather Watcher";
@@ -158,6 +164,18 @@
 				3F294D1F148DBBCC006E59C8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F294D3E14975132006E59C8 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				3F294D0E148DBBCC006E59C8 /* MyDocument.xcdatamodeld */,
+				3F294D3814970FD5006E59C8 /* Station.h */,
+				3F294D3914970FD5006E59C8 /* Station.m */,
+				3F294D3B1497100C006E59C8 /* Observation.h */,
+				3F294D3C1497100C006E59C8 /* Observation.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +287,8 @@
 				3F294D00148DBBCB006E59C8 /* main.m in Sources */,
 				3F294D07148DBBCB006E59C8 /* MyDocument.m in Sources */,
 				3F294D10148DBBCC006E59C8 /* MyDocument.xcdatamodeld in Sources */,
+				3F294D3A14970FD5006E59C8 /* Station.m in Sources */,
+				3F294D3D1497100C006E59C8 /* Observation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
