@@ -15,7 +15,7 @@
         <relationship name="observations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Observation" inverseName="station" inverseEntity="Observation"/>
     </entity>
     <elements>
-        <element name="Station" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Observation" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Station" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>
