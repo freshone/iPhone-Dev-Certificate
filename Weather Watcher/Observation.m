@@ -32,4 +32,39 @@
     self.pressure = [NSNumber numberWithDouble:1000 + (rand() % 500) * 0.1];    
 }
 
++ (Observation *)findOrCreateObservationWithStation:(Station *)aStation
+                                               time:(NSDate *)aTime
+                                               temp:(NSNumber *)aTemp
+                                          windSpeed:(NSNumber *)aWindSpeed
+                                           pressure:(NSNumber *)aPressure
+                                                moc:(NSManagedObjectContext *)moc
+{
+    NSDictionary *predicateVariables = [NSDictionary dictionaryWithObjectsAndKeys:aStation.code, @"icaoCode", aTime, @"timestamp", nil];
+    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"station.code == $icaoCode AND time == $timestamp"]];
+    NSPredicate *localPredicate = [predicateTemplate predicateWithSubstitutionVariables:predicateVariables];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:@"Observation" inManagedObjectContext:moc]];
+    [fetchRequest setPredicate:localPredicate];
+    
+    NSError *error;
+    NSArray *existingObservations = [moc executeFetchRequest:fetchRequest error:&error];
+    
+    Observation *matchingObservation;
+    if(existingObservations.count == 0) {
+        matchingObservation = [NSEntityDescription insertNewObjectForEntityForName:@"Observation" inManagedObjectContext:moc];
+        matchingObservation.time = aTime;
+        matchingObservation.temp = aTemp;
+        matchingObservation.windSpeed = aWindSpeed;
+        matchingObservation.pressure = aPressure;
+        matchingObservation.station = aStation;
+
+    }
+    else {
+        matchingObservation = existingObservations.lastObject;
+    }
+    
+    return matchingObservation;
+}
+
+
 @end

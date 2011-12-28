@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2893DE14A9DB90004824A4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2893DD14A9DB90004824A4 /* CoreLocation.framework */; };
 		3F294CF4148DBBCB006E59C8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F294CF3148DBBCB006E59C8 /* Cocoa.framework */; };
 		3F294CFE148DBBCB006E59C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F294CFC148DBBCB006E59C8 /* InfoPlist.strings */; };
 		3F294D00148DBBCB006E59C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F294CFF148DBBCB006E59C8 /* main.m */; };
@@ -35,10 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F2893DD14A9DB90004824A4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F294CEF148DBBCB006E59C8 /* Weather Watcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Watcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F294CF3148DBBCB006E59C8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3F294CF6148DBBCB006E59C8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		3F294CF7148DBBCB006E59C8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3F294CF8148DBBCB006E59C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F294CFB148DBBCB006E59C8 /* Weather Watcher-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Weather Watcher-Info.plist"; sourceTree = "<group>"; };
 		3F294CFD148DBBCB006E59C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2893DE14A9DB90004824A4 /* CoreLocation.framework in Frameworks */,
 				3F294CF4148DBBCB006E59C8 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,8 +117,8 @@
 		3F294CF5148DBBCB006E59C8 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F2893DD14A9DB90004824A4 /* CoreLocation.framework */,
 				3F294CF6148DBBCB006E59C8 /* AppKit.framework */,
-				3F294CF7148DBBCB006E59C8 /* CoreData.framework */,
 				3F294CF8148DBBCB006E59C8 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -468,6 +470,7 @@
 				3F294D2A148DBBCC006E59C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F294D2B148DBBCC006E59C8 /* Build configuration list for PBXNativeTarget "Weather WatcherTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +479,7 @@
 				3F294D2D148DBBCC006E59C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

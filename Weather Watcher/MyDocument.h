@@ -7,9 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreLocation/CoreLocation.h>
+#import "Station.h"
 
-@interface MyDocument : NSPersistentDocument {
-
+@interface MyDocument : NSPersistentDocument <CLLocationManagerDelegate> {
+    CLLocationManager *locationManager;
+    CLLocation *myLocation;
 }
+
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) CLLocation *myLocation;
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
+- (void)update;
+- (void)updateStationsForLocation:(CLLocation *)aLocation;
+- (void)updateObservationsForStation:(Station *)aStation;
 
 @end

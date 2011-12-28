@@ -14,10 +14,17 @@
 @interface Observation : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) NSDate * time;
-@property (nonatomic, retain) NSNumber * temp;
-@property (nonatomic, retain) NSNumber * windSpeed;
-@property (nonatomic, retain) NSNumber * pressure;
+@property (nonatomic, retain) NSDate *time;
+@property (nonatomic, retain) NSNumber *temp;
+@property (nonatomic, retain) NSNumber *windSpeed;
+@property (nonatomic, retain) NSNumber *pressure;
 @property (nonatomic, retain) Station *station;
+
++ (Observation *)findOrCreateObservationWithStation:(Station *)aStation
+                                               time:(NSDate *)aTime
+                                               temp:(NSNumber *)aTemp
+                                          windSpeed:(NSNumber *)aWindSpeed
+                                           pressure:(NSNumber *)aPressure
+                                                moc:(NSManagedObjectContext *)moc;
 
 @end

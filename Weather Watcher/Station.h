@@ -13,10 +13,17 @@
 @interface Station : NSManagedObject {
 @private
 }
+
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSManagedObject *observations;
+
++ (Station *)findOrCreateStationWithCode:(NSString *)aCode
+                                   name:(NSString *)aName
+                               latitude:(NSNumber *)aLat
+                             longitutde:(NSNumber *)aLong
+                                    moc:(NSManagedObjectContext *)moc;
 
 @end

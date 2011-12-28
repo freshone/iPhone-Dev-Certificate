@@ -34,4 +34,35 @@ static NSUInteger stationCount = 0;
     }
 }
 
++ (Station *)findOrCreateStationWithCode:(NSString *)aCode
+                                   name:(NSString *)aName
+                               latitude:(NSNumber *)aLat
+                             longitutde:(NSNumber *)aLong
+                                    moc:(NSManagedObjectContext *)moc
+{
+    NSDictionary *predicateVariables = [NSDictionary dictionaryWithObject:aCode forKey:@"icaoCode"];
+    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"code == $icaoCode"]];
+    NSPredicate *localPredicate = [predicateTemplate predicateWithSubstitutionVariables:predicateVariables];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:@"Station" inManagedObjectContext:moc]];
+    [fetchRequest setPredicate:localPredicate];
+    
+    NSError *error;
+    NSArray *existingStations = [moc executeFetchRequest:fetchRequest error:&error];
+    
+    Station *matchingStation;
+    if(existingStations.count == 0) {
+        matchingStation = [NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:moc];
+        matchingStation.code = aCode;
+        matchingStation.name = aName;
+        matchingStation.latitude = aLat;
+        matchingStation.longitude = aLong;
+    }
+    else {
+        matchingStation = existingStations.lastObject;
+    }
+    
+    return matchingStation;
+}
+
 @end
