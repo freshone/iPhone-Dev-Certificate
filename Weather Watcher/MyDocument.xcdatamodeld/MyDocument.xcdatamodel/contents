@@ -12,7 +12,7 @@
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="observations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Observation" inverseName="station" inverseEntity="Observation"/>
+        <relationship name="observations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Observation" inverseName="station" inverseEntity="Observation"/>
     </entity>
     <elements>
         <element name="Observation" positionX="160" positionY="192" width="128" height="120"/>
