@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+- (void)initializeLocationServicesIfAvailable;
 - (void)updatePathOverlay;
 @end
 
@@ -18,13 +19,11 @@
 @synthesize locationMapView = _locationMapView;
 @synthesize pathCoordinates = _pathCoordinates;
 @synthesize pathOverlay = _pathOverlay;
-@synthesize distanceTraveled = _distanceTraveled;
 @synthesize distanceLabel = _distanceLabel;
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -34,24 +33,9 @@
     [super viewDidLoad];
     
     self.pathCoordinates = [[[NSMutableArray alloc] init] autorelease];
-    [self updatePathOverlay];
-    [self.locationMapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
     [self.locationMapView setShowsUserLocation:YES];
     [self.locationMapView setDelegate:self];
-    
-    if([CLLocationManager locationServicesEnabled])
-    {
-        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
-        [self.locationManager setDelegate:self];
-        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
-        [self.locationManager setPurpose:@"To map your path"];
-        [self.locationManager startUpdatingLocation];
-    }
-    else
-    {
-        NSLog(@"Location Manager did not initialize properly.");
-    }
-    
+    [self updatePathOverlay];
 }
 
 - (void)viewDidUnload
@@ -64,6 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self initializeLocationServicesIfAvailable];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -92,7 +77,8 @@
            fromLocation:(CLLocation *)oldLocation
 {    
     if(!((newLocation.coordinate.latitude == oldLocation.coordinate.latitude) &&
-       (newLocation.coordinate.longitude == oldLocation.coordinate.longitude)))
+       (newLocation.coordinate.longitude == oldLocation.coordinate.longitude)) &&
+       (oldLocation != nil))
     {
         NSLog(@"Location Received, adding...");
         [self.pathCoordinates addObject:newLocation];
@@ -125,6 +111,29 @@
     else
     {
         return nil;
+    }
+}
+
+- (void)initializeLocationServicesIfAvailable
+{
+    [self enableTrackingMode:nil];
+    self.locationManager = [[[CLLocationManager alloc] init] autorelease];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
+    [self.locationManager setPurpose:@"To map your path"];
+    [self.locationManager startUpdatingLocation];
+
+    if(![CLLocationManager locationServicesEnabled])
+    {
+        NSLog(@"Location Services disabled.");
+    }
+    else if([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized)
+    {
+        NSLog(@"Location Services not authorized.");
+    }
+    if(self.locationManager == nil)
+    {
+        NSLog(@"Location Services failed to initialize.");
     }
 }
 
@@ -170,6 +179,5 @@
     self.pathCoordinates = [[[NSMutableArray alloc] init] autorelease];
     [self updatePathOverlay];
 }
-
 
 @end

@@ -17,7 +17,6 @@
 @property (nonatomic, retain) IBOutlet MKMapView *locationMapView;
 @property (nonatomic, retain) NSMutableArray *pathCoordinates;
 @property (nonatomic, retain) MKPolyline *pathOverlay;
-@property (nonatomic, retain) NSNumber *distanceTraveled;
 @property (nonatomic, retain) IBOutlet UILabel *distanceLabel;
 
 - (IBAction)enableTrackingMode:(id)sender;
