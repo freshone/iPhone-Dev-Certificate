@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Weather Watcher' target in the 'Weather Watcher' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

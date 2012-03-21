@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Observation" representedClassName="Observation">
+        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="time" optional="YES" attributeType="Date"/>
+        <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <relationship name="station" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Station" inverseName="observations" inverseEntity="Station"/>
+    </entity>
+    <entity name="Station" representedClassName="Station">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="observations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Observation" inverseName="station" inverseEntity="Observation"/>
+    </entity>
+    <elements>
+        <element name="Observation" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Station" positionX="160" positionY="192" width="128" height="120"/>
+    </elements>
+</model>
