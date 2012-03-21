@@ -127,6 +127,9 @@
 /* Begin PBXProject section */
 		3F89CB751448280F00A834AD /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 3F89CB781448280F00A834AD /* Build configuration list for PBXProject "cp120hw1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -283,6 +286,7 @@
 				3F89CB9E1448280F00A834AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
