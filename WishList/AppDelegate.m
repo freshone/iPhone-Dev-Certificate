@@ -8,28 +8,24 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
-
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize navigationController = _navigationController;
+@synthesize window;
+@synthesize wishListViewController;
 
 - (void)dealloc
 {
-    [_window release];
-    [_navigationController release];
+    self.window = nil;
+    self.wishListViewController = nil;
+    
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-
-    MasterViewController *masterViewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
-    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
-    self.window.rootViewController = self.navigationController;
+    self.wishListViewController = [[[WishListViewController alloc] initWithNibName:@"WishListViewController" bundle:nil] autorelease];
+    self.window.rootViewController = [[[UINavigationController alloc] initWithRootViewController:self.wishListViewController] autorelease];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -44,10 +40,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
+    [self.wishListViewController.wishList saveWishListToFile];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

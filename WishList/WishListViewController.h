@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WishList.h"
 
-@class DetailViewController;
+@class WishListItemViewController;
 
-@interface MasterViewController : UITableViewController
+@interface WishListViewController : UITableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (nonatomic, retain) WishList *wishList;
+
+- (void)addPushed;
 
 @end

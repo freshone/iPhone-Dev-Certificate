@@ -13,10 +13,12 @@
 		3FF5D83D14DE2DA200F2E00C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF5D83B14DE2DA200F2E00C /* InfoPlist.strings */; };
 		3FF5D83F14DE2DA200F2E00C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D83E14DE2DA200F2E00C /* main.m */; };
 		3FF5D84314DE2DA200F2E00C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D84214DE2DA200F2E00C /* AppDelegate.m */; };
-		3FF5D84614DE2DA200F2E00C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D84514DE2DA200F2E00C /* MasterViewController.m */; };
-		3FF5D84914DE2DA200F2E00C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D84814DE2DA200F2E00C /* DetailViewController.m */; };
-		3FF5D84C14DE2DA200F2E00C /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF5D84A14DE2DA200F2E00C /* MasterViewController.xib */; };
-		3FF5D84F14DE2DA200F2E00C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF5D84D14DE2DA200F2E00C /* DetailViewController.xib */; };
+		3FF5D84614DE2DA200F2E00C /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D84514DE2DA200F2E00C /* WishListViewController.m */; };
+		3FF5D84914DE2DA200F2E00C /* WishListItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D84814DE2DA200F2E00C /* WishListItemViewController.m */; };
+		3FF5D84C14DE2DA200F2E00C /* WishListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF5D84A14DE2DA200F2E00C /* WishListViewController.xib */; };
+		3FF5D85B14E8C42B00F2E00C /* WishList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D85A14E8C42B00F2E00C /* WishList.m */; };
+		3FF5D85E14E8C4B000F2E00C /* WishListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5D85D14E8C4B000F2E00C /* WishListItem.m */; };
+		3FF5D86A14EA0C5900F2E00C /* WishListItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF5D86514EA0C5900F2E00C /* WishListItemViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,18 +26,22 @@
 		3FF5D83214DE2DA200F2E00C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3FF5D83414DE2DA200F2E00C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FF5D83614DE2DA200F2E00C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3FF5D83A14DE2DA200F2E00C /* WishList-Info.plist */ = {isa = PBXFileReference; path = "WishList-Info.plist"; sourceTree = "<group>"; };
+		3FF5D83A14DE2DA200F2E00C /* WishList-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WishList-Info.plist"; sourceTree = "<group>"; };
 		3FF5D83C14DE2DA200F2E00C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FF5D83E14DE2DA200F2E00C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3FF5D84014DE2DA200F2E00C /* WishList-Prefix.pch */ = {isa = PBXFileReference; path = "WishList-Prefix.pch"; sourceTree = "<group>"; };
-		3FF5D84114DE2DA200F2E00C /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3FF5D84014DE2DA200F2E00C /* WishList-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WishList-Prefix.pch"; sourceTree = "<group>"; };
+		3FF5D84114DE2DA200F2E00C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FF5D84214DE2DA200F2E00C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3FF5D84414DE2DA200F2E00C /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
-		3FF5D84514DE2DA200F2E00C /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		3FF5D84714DE2DA200F2E00C /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
-		3FF5D84814DE2DA200F2E00C /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		3FF5D84B14DE2DA200F2E00C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
-		3FF5D84E14DE2DA200F2E00C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		3FF5D84414DE2DA200F2E00C /* WishListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishListViewController.h; sourceTree = "<group>"; };
+		3FF5D84514DE2DA200F2E00C /* WishListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishListViewController.m; sourceTree = "<group>"; };
+		3FF5D84714DE2DA200F2E00C /* WishListItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishListItemViewController.h; sourceTree = "<group>"; };
+		3FF5D84814DE2DA200F2E00C /* WishListItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishListItemViewController.m; sourceTree = "<group>"; };
+		3FF5D84B14DE2DA200F2E00C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WishListViewController.xib; sourceTree = "<group>"; };
+		3FF5D85914E8C42B00F2E00C /* WishList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishList.h; sourceTree = "<group>"; };
+		3FF5D85A14E8C42B00F2E00C /* WishList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishList.m; sourceTree = "<group>"; };
+		3FF5D85C14E8C4B000F2E00C /* WishListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishListItem.h; sourceTree = "<group>"; };
+		3FF5D85D14E8C4B000F2E00C /* WishListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishListItem.m; sourceTree = "<group>"; };
+		3FF5D86614EA0C5900F2E00C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WishListItemViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +88,8 @@
 		3FF5D83814DE2DA200F2E00C /* WishList */ = {
 			isa = PBXGroup;
 			children = (
-				3FF5D84114DE2DA200F2E00C /* AppDelegate.h */,
-				3FF5D84214DE2DA200F2E00C /* AppDelegate.m */,
-				3FF5D84414DE2DA200F2E00C /* MasterViewController.h */,
-				3FF5D84514DE2DA200F2E00C /* MasterViewController.m */,
-				3FF5D84714DE2DA200F2E00C /* DetailViewController.h */,
-				3FF5D84814DE2DA200F2E00C /* DetailViewController.m */,
-				3FF5D84A14DE2DA200F2E00C /* MasterViewController.xib */,
-				3FF5D84D14DE2DA200F2E00C /* DetailViewController.xib */,
+				3FF5D86114E8C4E100F2E00C /* Controller */,
+				3FF5D85F14E8C4B700F2E00C /* Model */,
 				3FF5D83914DE2DA200F2E00C /* Supporting Files */,
 			);
 			path = WishList;
@@ -104,6 +104,48 @@
 				3FF5D84014DE2DA200F2E00C /* WishList-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FF5D85F14E8C4B700F2E00C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5D85914E8C42B00F2E00C /* WishList.h */,
+				3FF5D85A14E8C42B00F2E00C /* WishList.m */,
+				3FF5D85C14E8C4B000F2E00C /* WishListItem.h */,
+				3FF5D85D14E8C4B000F2E00C /* WishListItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3FF5D86114E8C4E100F2E00C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5D87514EA63E600F2E00C /* WishList */,
+				3FF5D87614EA640F00F2E00C /* WishListItem */,
+				3FF5D84114DE2DA200F2E00C /* AppDelegate.h */,
+				3FF5D84214DE2DA200F2E00C /* AppDelegate.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3FF5D87514EA63E600F2E00C /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5D84414DE2DA200F2E00C /* WishListViewController.h */,
+				3FF5D84514DE2DA200F2E00C /* WishListViewController.m */,
+				3FF5D84A14DE2DA200F2E00C /* WishListViewController.xib */,
+			);
+			name = WishList;
+			sourceTree = "<group>";
+		};
+		3FF5D87614EA640F00F2E00C /* WishListItem */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5D84714DE2DA200F2E00C /* WishListItemViewController.h */,
+				3FF5D84814DE2DA200F2E00C /* WishListItemViewController.m */,
+				3FF5D86514EA0C5900F2E00C /* WishListItemViewController.xib */,
+			);
+			name = WishListItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FF5D83D14DE2DA200F2E00C /* InfoPlist.strings in Resources */,
-				3FF5D84C14DE2DA200F2E00C /* MasterViewController.xib in Resources */,
-				3FF5D84F14DE2DA200F2E00C /* DetailViewController.xib in Resources */,
+				3FF5D84C14DE2DA200F2E00C /* WishListViewController.xib in Resources */,
+				3FF5D86A14EA0C5900F2E00C /* WishListItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +213,10 @@
 			files = (
 				3FF5D83F14DE2DA200F2E00C /* main.m in Sources */,
 				3FF5D84314DE2DA200F2E00C /* AppDelegate.m in Sources */,
-				3FF5D84614DE2DA200F2E00C /* MasterViewController.m in Sources */,
-				3FF5D84914DE2DA200F2E00C /* DetailViewController.m in Sources */,
+				3FF5D84614DE2DA200F2E00C /* WishListViewController.m in Sources */,
+				3FF5D84914DE2DA200F2E00C /* WishListItemViewController.m in Sources */,
+				3FF5D85B14E8C42B00F2E00C /* WishList.m in Sources */,
+				3FF5D85E14E8C4B000F2E00C /* WishListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,20 +231,21 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3FF5D84A14DE2DA200F2E00C /* MasterViewController.xib */ = {
+		3FF5D84A14DE2DA200F2E00C /* WishListViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3FF5D84B14DE2DA200F2E00C /* en */,
 			);
-			name = MasterViewController.xib;
+			name = WishListViewController.xib;
 			sourceTree = "<group>";
 		};
-		3FF5D84D14DE2DA200F2E00C /* DetailViewController.xib */ = {
+		3FF5D86514EA0C5900F2E00C /* WishListItemViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3FF5D84E14DE2DA200F2E00C /* en */,
+				3FF5D86614EA0C5900F2E00C /* en */,
 			);
-			name = DetailViewController.xib;
+			name = WishListItemViewController.xib;
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +335,7 @@
 				3FF5D85414DE2DA200F2E00C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

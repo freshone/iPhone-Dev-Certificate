@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WishListViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic) WishListViewController *wishListViewController;
 
 @end
