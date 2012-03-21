@@ -13,6 +13,9 @@
 		3F041BC914565C080012CBDE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F041BC714565C080012CBDE /* Credits.rtf */; };
 		3F041BCC14565C080012CBDE /* cp120hw2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F041BCB14565C080012CBDE /* cp120hw2AppDelegate.m */; };
 		3F041BCF14565C080012CBDE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F041BCD14565C080012CBDE /* MainMenu.xib */; };
+		3FE3137E14566148001A8671 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3137D14566148001A8671 /* Person.m */; };
+		3FE3138514566504001A8671 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3138414566504001A8671 /* Meeting.m */; };
+		3FE3138814567082001A8671 /* MeetingParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3138714567082001A8671 /* MeetingParticipant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +24,20 @@
 		3F041BBB14565C080012CBDE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3F041BBC14565C080012CBDE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3F041BBD14565C080012CBDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3F041BC014565C080012CBDE /* cp120hw2-Info.plist */ = {isa = PBXFileReference; path = "cp120hw2-Info.plist"; sourceTree = "<group>"; };
+		3F041BC014565C080012CBDE /* cp120hw2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cp120hw2-Info.plist"; sourceTree = "<group>"; };
 		3F041BC214565C080012CBDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F041BC414565C080012CBDE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3F041BC614565C080012CBDE /* cp120hw2-Prefix.pch */ = {isa = PBXFileReference; path = "cp120hw2-Prefix.pch"; sourceTree = "<group>"; };
+		3F041BC614565C080012CBDE /* cp120hw2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cp120hw2-Prefix.pch"; sourceTree = "<group>"; };
 		3F041BC814565C080012CBDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		3F041BCA14565C080012CBDE /* cp120hw2AppDelegate.h */ = {isa = PBXFileReference; path = cp120hw2AppDelegate.h; sourceTree = "<group>"; };
+		3F041BCA14565C080012CBDE /* cp120hw2AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cp120hw2AppDelegate.h; sourceTree = "<group>"; };
 		3F041BCB14565C080012CBDE /* cp120hw2AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cp120hw2AppDelegate.m; sourceTree = "<group>"; };
 		3F041BCE14565C080012CBDE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3FE3137C14566148001A8671 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		3FE3137D14566148001A8671 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		3FE3138314566504001A8671 /* Meeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meeting.h; sourceTree = "<group>"; };
+		3FE3138414566504001A8671 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meeting.m; sourceTree = "<group>"; };
+		3FE3138614567082001A8671 /* MeetingParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingParticipant.h; sourceTree = "<group>"; };
+		3FE3138714567082001A8671 /* MeetingParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingParticipant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +95,12 @@
 				3F041BCB14565C080012CBDE /* cp120hw2AppDelegate.m */,
 				3F041BCD14565C080012CBDE /* MainMenu.xib */,
 				3F041BBF14565C080012CBDE /* Supporting Files */,
+				3FE3137C14566148001A8671 /* Person.h */,
+				3FE3137D14566148001A8671 /* Person.m */,
+				3FE3138314566504001A8671 /* Meeting.h */,
+				3FE3138414566504001A8671 /* Meeting.m */,
+				3FE3138614567082001A8671 /* MeetingParticipant.h */,
+				3FE3138714567082001A8671 /* MeetingParticipant.m */,
 			);
 			path = cp120hw2;
 			sourceTree = "<group>";
@@ -164,6 +179,9 @@
 			files = (
 				3F041BC514565C080012CBDE /* main.m in Sources */,
 				3F041BCC14565C080012CBDE /* cp120hw2AppDelegate.m in Sources */,
+				3FE3137E14566148001A8671 /* Person.m in Sources */,
+				3FE3138514566504001A8671 /* Meeting.m in Sources */,
+				3FE3138814567082001A8671 /* MeetingParticipant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +301,7 @@
 				3F041BD414565C080012CBDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
