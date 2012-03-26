@@ -15,39 +15,8 @@
 @synthesize createdAt = _createdAt;
 @synthesize url = _url;
 @synthesize imageUrl = _imageUrl;
-@synthesize imageThumbnailUrl = _imageThumbnailUrl;
+@synthesize thumbnailUrl = _thumbnailUrl;
 @synthesize image = _image;
-@synthesize imageThumbnail = _imageThumbnail;
-
-
-- (UIImage*)getImage
-{
-    if(self.image == nil)
-    {
-        //hydrate image from url
-    }
-    
-    return self.imageThumbnail;
-}
-
-- (UIImage*)getImageThumnail
-{
-    if(self.imageThumbnail == nil)
-    {
-        //hydrate image from url
-    }
-    
-    return self.imageThumbnail;
-}
-
-- (bool)isImageLoaded
-{
-    return self.image == nil;
-}
-
-- (bool)isImageThumbnailLoaded
-{
-    return self.imageThumbnail == nil;
-}
+@synthesize thumbnail = _thumbnail;
 
 @end

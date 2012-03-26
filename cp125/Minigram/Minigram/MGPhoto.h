@@ -15,13 +15,8 @@
 @property (nonatomic, assign) NSDate *createdAt;
 @property (nonatomic, assign) NSURL *url;
 @property (nonatomic, assign) NSURL *imageUrl;
-@property (nonatomic, assign) NSURL *imageThumbnailUrl;
+@property (nonatomic, assign) NSURL *thumbnailUrl;
 @property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) UIImage *imageThumbnail;
-
-- (UIImage*)getImage;
-- (UIImage*)getImageThumnail;
-- (bool)isImageLoaded;
-- (bool)isImageThumbnailLoaded;
+@property (nonatomic, retain) UIImage *thumbnail;
 
 @end

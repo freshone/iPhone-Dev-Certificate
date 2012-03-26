@@ -14,9 +14,9 @@
 @optional
 - (void)serviceClientDidCompleteGetPhotosRequest:(MGPhotostream*)response;
 - (void)serviceClientDidCompleteGetPhotoRequest:(MGPhoto*)response;
-- (void)serviceClientDidCompletePostPhotos:(bool)didSucceed;
-- (void)serviceClientDidCompleteImageLoad:(MGPhoto*)loadedPhoto;
-- (void)serviceClientDidCompleteImageThumbnail:(MGPhotostream*)loadedStream;
+- (void)serviceClientDidCompletePostPhotosRequest:(MGPhoto*)response;
+- (void)serviceClientDidCompleteHydrateImage:(NSIndexPath*)index;
+- (void)serviceClientDidCompleteHydrateThumbnail:(NSIndexPath*)index;
 - (void)serviceClientUpdatedPostPhotosProgress:(float)percentComplete;
 @end
 
@@ -24,6 +24,9 @@
 @property (nonatomic, assign) id<MGServiceClientDelegate> delegate;
 - (void)httpGetPhotos;
 - (void)httpGetPhoto:(NSString*)photoId;
-- (void)httpPostPhotos:(UIImage*)photo :(NSString*)title :(NSString*)latitude :(NSString*)longitude;
-- (void)httpLoadImage:(MGPhoto*)photo;
+- (void)httpPostPhotos:(UIImage*)photo withTitle:(NSString*)title withLatitude:(NSString*)latitude withLongitude:(NSString*)longitude;
+- (void)httpHydrateImage:(MGPhoto*)photo forIndexPath:(NSIndexPath*)indexPath;
+- (void)httpHydrateThumbnail:(MGPhoto*)photo forIndexPath:(NSIndexPath*)indexPath;
+- (void)closeOpenConnections;
+- (NSArray*)createArrayFromJSON:(NSData*)data;
 @end
