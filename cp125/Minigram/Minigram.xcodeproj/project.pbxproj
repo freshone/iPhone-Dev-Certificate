@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FBB0A4C15181762006715CE /* MGPhotostream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A4B15181762006715CE /* MGPhotostream.m */; };
+		3FBB0A501518177F006715CE /* MGPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A4F1518177F006715CE /* MGPhoto.m */; };
+		3FBB0A5B15182312006715CE /* MGServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A5A15182312006715CE /* MGServiceClient.m */; };
+		A392A5D314FB58A9002E81E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D214FB58A9002E81E6 /* UIKit.framework */; };
+		A392A5D514FB58A9002E81E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D414FB58A9002E81E6 /* Foundation.framework */; };
+		A392A5D714FB58A9002E81E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D614FB58A9002E81E6 /* CoreGraphics.framework */; };
+		A392A5DD14FB58A9002E81E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A392A5DB14FB58A9002E81E6 /* InfoPlist.strings */; };
+		A392A5DF14FB58A9002E81E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A392A5DE14FB58A9002E81E6 /* main.m */; };
+		A392A5E314FB58A9002E81E6 /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A392A5E214FB58A9002E81E6 /* MGAppDelegate.m */; };
+		A392A5EA14FB58F2002E81E6 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A392A5E914FB58F2002E81E6 /* Storyboard.storyboard */; };
+		A392A5ED14FB5A32002E81E6 /* MGPhotostreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = A392A5EC14FB5A32002E81E6 /* MGPhotostreamController.m */; };
+		A392A5F414FB5AA8002E81E6 /* MGPhotoDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A392A5F314FB5AA8002E81E6 /* MGPhotoDetailController.m */; };
+		A392A5F714FB656F002E81E6 /* camera-button-bar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A392A5F614FB656F002E81E6 /* camera-button-bar-background@2x.png */; };
+		A392A5F914FB65AC002E81E6 /* camera-button-bar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = A392A5F814FB65AC002E81E6 /* camera-button-bar-background.png */; };
+		A392A5FB14FB660D002E81E6 /* MGCaptionBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A392A5FA14FB660D002E81E6 /* MGCaptionBar.xib */; };
+		A392A64014FC163D002E81E6 /* NSMutableData+MGMultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = A392A63F14FC163D002E81E6 /* NSMutableData+MGMultipartFormData.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3FBB0A4A15181762006715CE /* MGPhotostream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotostream.h; sourceTree = "<group>"; };
+		3FBB0A4B15181762006715CE /* MGPhotostream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotostream.m; sourceTree = "<group>"; };
+		3FBB0A4E1518177F006715CE /* MGPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhoto.h; sourceTree = "<group>"; };
+		3FBB0A4F1518177F006715CE /* MGPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhoto.m; sourceTree = "<group>"; };
+		3FBB0A5915182311006715CE /* MGServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MGServiceClient.h; sourceTree = "<group>"; };
+		3FBB0A5A15182312006715CE /* MGServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGServiceClient.m; sourceTree = "<group>"; };
+		A392A5CE14FB58A9002E81E6 /* Minigram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minigram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A392A5D214FB58A9002E81E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A392A5D414FB58A9002E81E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A392A5D614FB58A9002E81E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A392A5DA14FB58A9002E81E6 /* Minigram-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Minigram-Info.plist"; sourceTree = "<group>"; };
+		A392A5DC14FB58A9002E81E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A392A5DE14FB58A9002E81E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A392A5E014FB58A9002E81E6 /* Minigram-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Minigram-Prefix.pch"; sourceTree = "<group>"; };
+		A392A5E114FB58A9002E81E6 /* MGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAppDelegate.h; sourceTree = "<group>"; };
+		A392A5E214FB58A9002E81E6 /* MGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAppDelegate.m; sourceTree = "<group>"; };
+		A392A5E914FB58F2002E81E6 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		A392A5EB14FB5A32002E81E6 /* MGPhotostreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotostreamController.h; sourceTree = "<group>"; };
+		A392A5EC14FB5A32002E81E6 /* MGPhotostreamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotostreamController.m; sourceTree = "<group>"; };
+		A392A5F214FB5AA8002E81E6 /* MGPhotoDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotoDetailController.h; sourceTree = "<group>"; };
+		A392A5F314FB5AA8002E81E6 /* MGPhotoDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotoDetailController.m; sourceTree = "<group>"; };
+		A392A5F614FB656F002E81E6 /* camera-button-bar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button-bar-background@2x.png"; sourceTree = "<group>"; };
+		A392A5F814FB65AC002E81E6 /* camera-button-bar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button-bar-background.png"; sourceTree = "<group>"; };
+		A392A5FA14FB660D002E81E6 /* MGCaptionBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGCaptionBar.xib; sourceTree = "<group>"; };
+		A392A63E14FC163D002E81E6 /* NSMutableData+MGMultipartFormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+MGMultipartFormData.h"; sourceTree = "<group>"; };
+		A392A63F14FC163D002E81E6 /* NSMutableData+MGMultipartFormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+MGMultipartFormData.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A392A5CB14FB58A9002E81E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A392A5D314FB58A9002E81E6 /* UIKit.framework in Frameworks */,
+				A392A5D514FB58A9002E81E6 /* Foundation.framework in Frameworks */,
+				A392A5D714FB58A9002E81E6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A392A5C314FB58A9002E81E6 = {
+			isa = PBXGroup;
+			children = (
+				A392A5D814FB58A9002E81E6 /* Minigram */,
+				A392A5D114FB58A9002E81E6 /* Frameworks */,
+				A392A5CF14FB58A9002E81E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A392A5CF14FB58A9002E81E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5CE14FB58A9002E81E6 /* Minigram.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A392A5D114FB58A9002E81E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5D214FB58A9002E81E6 /* UIKit.framework */,
+				A392A5D414FB58A9002E81E6 /* Foundation.framework */,
+				A392A5D614FB58A9002E81E6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A392A5D814FB58A9002E81E6 /* Minigram */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5F514FB5B73002E81E6 /* Model */,
+				A392A5EE14FB5A38002E81E6 /* Controller */,
+				A392A63D14FC1622002E81E6 /* Foundation Extensions */,
+				A392A5D914FB58A9002E81E6 /* Supporting Files */,
+			);
+			path = Minigram;
+			sourceTree = "<group>";
+		};
+		A392A5D914FB58A9002E81E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5DA14FB58A9002E81E6 /* Minigram-Info.plist */,
+				A392A5DB14FB58A9002E81E6 /* InfoPlist.strings */,
+				A392A5DE14FB58A9002E81E6 /* main.m */,
+				A392A5E014FB58A9002E81E6 /* Minigram-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A392A5EE14FB5A38002E81E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5E114FB58A9002E81E6 /* MGAppDelegate.h */,
+				A392A5E214FB58A9002E81E6 /* MGAppDelegate.m */,
+				A392A5E914FB58F2002E81E6 /* Storyboard.storyboard */,
+				A392A5F014FB5A71002E81E6 /* Photostream */,
+				A392A5F114FB5A7F002E81E6 /* Photo Detail */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A392A5F014FB5A71002E81E6 /* Photostream */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5EB14FB5A32002E81E6 /* MGPhotostreamController.h */,
+				A392A5EC14FB5A32002E81E6 /* MGPhotostreamController.m */,
+				A392A5FA14FB660D002E81E6 /* MGCaptionBar.xib */,
+				A392A5F814FB65AC002E81E6 /* camera-button-bar-background.png */,
+				A392A5F614FB656F002E81E6 /* camera-button-bar-background@2x.png */,
+			);
+			name = Photostream;
+			sourceTree = "<group>";
+		};
+		A392A5F114FB5A7F002E81E6 /* Photo Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A392A5F214FB5AA8002E81E6 /* MGPhotoDetailController.h */,
+				A392A5F314FB5AA8002E81E6 /* MGPhotoDetailController.m */,
+			);
+			name = "Photo Detail";
+			sourceTree = "<group>";
+		};
+		A392A5F514FB5B73002E81E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FBB0A4A15181762006715CE /* MGPhotostream.h */,
+				3FBB0A4B15181762006715CE /* MGPhotostream.m */,
+				3FBB0A4E1518177F006715CE /* MGPhoto.h */,
+				3FBB0A4F1518177F006715CE /* MGPhoto.m */,
+				3FBB0A5915182311006715CE /* MGServiceClient.h */,
+				3FBB0A5A15182312006715CE /* MGServiceClient.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A392A63D14FC1622002E81E6 /* Foundation Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A392A63E14FC163D002E81E6 /* NSMutableData+MGMultipartFormData.h */,
+				A392A63F14FC163D002E81E6 /* NSMutableData+MGMultipartFormData.m */,
+			);
+			name = "Foundation Extensions";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A392A5CD14FB58A9002E81E6 /* Minigram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A392A5E614FB58A9002E81E6 /* Build configuration list for PBXNativeTarget "Minigram" */;
+			buildPhases = (
+				A392A5CA14FB58A9002E81E6 /* Sources */,
+				A392A5CB14FB58A9002E81E6 /* Frameworks */,
+				A392A5CC14FB58A9002E81E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Minigram;
+			productName = Minigram;
+			productReference = A392A5CE14FB58A9002E81E6 /* Minigram.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A392A5C514FB58A9002E81E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Luke Adamson";
+			};
+			buildConfigurationList = A392A5C814FB58A9002E81E6 /* Build configuration list for PBXProject "Minigram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A392A5C314FB58A9002E81E6;
+			productRefGroup = A392A5CF14FB58A9002E81E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A392A5CD14FB58A9002E81E6 /* Minigram */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A392A5CC14FB58A9002E81E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A392A5DD14FB58A9002E81E6 /* InfoPlist.strings in Resources */,
+				A392A5EA14FB58F2002E81E6 /* Storyboard.storyboard in Resources */,
+				A392A5F714FB656F002E81E6 /* camera-button-bar-background@2x.png in Resources */,
+				A392A5F914FB65AC002E81E6 /* camera-button-bar-background.png in Resources */,
+				A392A5FB14FB660D002E81E6 /* MGCaptionBar.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A392A5CA14FB58A9002E81E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A392A5DF14FB58A9002E81E6 /* main.m in Sources */,
+				A392A5E314FB58A9002E81E6 /* MGAppDelegate.m in Sources */,
+				A392A5ED14FB5A32002E81E6 /* MGPhotostreamController.m in Sources */,
+				A392A5F414FB5AA8002E81E6 /* MGPhotoDetailController.m in Sources */,
+				A392A64014FC163D002E81E6 /* NSMutableData+MGMultipartFormData.m in Sources */,
+				3FBB0A4C15181762006715CE /* MGPhotostream.m in Sources */,
+				3FBB0A501518177F006715CE /* MGPhoto.m in Sources */,
+				3FBB0A5B15182312006715CE /* MGServiceClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A392A5DB14FB58A9002E81E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A392A5DC14FB58A9002E81E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A392A5E414FB58A9002E81E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A392A5E514FB58A9002E81E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A392A5E714FB58A9002E81E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Minigram/Minigram-Prefix.pch";
+				INFOPLIST_FILE = "Minigram/Minigram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A392A5E814FB58A9002E81E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Minigram/Minigram-Prefix.pch";
+				INFOPLIST_FILE = "Minigram/Minigram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A392A5C814FB58A9002E81E6 /* Build configuration list for PBXProject "Minigram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A392A5E414FB58A9002E81E6 /* Debug */,
+				A392A5E514FB58A9002E81E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A392A5E614FB58A9002E81E6 /* Build configuration list for PBXNativeTarget "Minigram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A392A5E714FB58A9002E81E6 /* Debug */,
+				A392A5E814FB58A9002E81E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A392A5C514FB58A9002E81E6 /* Project object */;
+}
