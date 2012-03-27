@@ -7,7 +7,8 @@
 //
 
 #import "MGRequest.h"
+#import "MGPhoto.h"
 
 @interface MGStreamRequest : MGRequest
-
+@property (nonatomic, retain) NSMutableArray *photoStream;
 @end

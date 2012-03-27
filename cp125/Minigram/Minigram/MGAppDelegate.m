@@ -7,7 +7,9 @@
 //
 
 #import "MGAppDelegate.h"
-#import "MGServiceClient.h"
+#import "MGStreamRequest.h"
+#import "MGImageRequest.h"
+#import "MGPostRequest.h"
 
 @implementation MGAppDelegate
 
@@ -15,8 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    MGServiceClient *client = [[MGServiceClient alloc] init];
-    [client httpGetPhotos];
     return YES;
 }
 

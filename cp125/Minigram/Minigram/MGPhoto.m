@@ -18,5 +18,7 @@
 @synthesize thumbnailUrl = _thumbnailUrl;
 @synthesize image = _image;
 @synthesize thumbnail = _thumbnail;
+@synthesize longitude = _longitude;
+@synthesize latitude = _latitude;
 
 @end

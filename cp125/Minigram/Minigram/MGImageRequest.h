@@ -7,7 +7,8 @@
 //
 
 #import "MGRequest.h"
+#import "MGPhoto.h"
 
 @interface MGImageRequest : MGRequest
-
+@property (nonatomic, retain) MGPhoto *photo;
 @end

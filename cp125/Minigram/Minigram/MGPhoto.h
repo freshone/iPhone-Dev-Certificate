@@ -18,5 +18,7 @@
 @property (nonatomic, assign) NSURL *thumbnailUrl;
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) UIImage *thumbnail;
+@property (nonatomic, assign) NSString *longitude;
+@property (nonatomic, assign) NSString *latitude;
 
 @end

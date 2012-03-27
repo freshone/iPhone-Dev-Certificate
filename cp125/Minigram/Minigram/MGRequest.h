@@ -7,26 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MGPhotostream.h"
-#import "MGPhoto.h"
 
-@interface MGRequest : NSURLConnection
+@protocol MGRequestDelegate;
 
-typedef enum _MGRequestType
-{
-    GET_PHOTOS_REQUEST,
-    GET_PHOTO_REQUEST,
-    POST_PHOTOS_REQUEST,
-    HYDRATE_IMAGE_REQUEST,
-    HYDRATE_THUMBNAIL_REQUEST
-} MGRequestType;
-
-@property (nonatomic, assign) MGRequestType requestType;
-@property (nonatomic, retain) MGPhoto *requestPhoto;
-@property (nonatomic, retain) NSIndexPath *requestIndexPath;
+@interface MGRequest : NSObject <NSURLConnectionDelegate>
+@property (nonatomic, assign) id<MGRequestDelegate> delegate;
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (nonatomic, assign) NSStringEncoding encoding;
-
+@property (nonatomic, retain) NSURLConnection *httpConnection;
+- (void)send;
+- (void)cancel;
 @end
 
-
+@protocol MGRequestDelegate <NSObject>
+@optional
+- (void)requestDidComplete:(MGRequest*)request;
+- (void)requestDidFail:(MGRequest*)request;
+- (void)requestDidUpdate:(MGRequest*)request;
+@end

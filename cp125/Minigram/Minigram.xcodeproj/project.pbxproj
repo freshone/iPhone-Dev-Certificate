@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3F6BED9215205A7900A4CF26 /* MGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9115205A7900A4CF26 /* MGRequest.m */; };
-		3FBB0A4C15181762006715CE /* MGPhotostream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A4B15181762006715CE /* MGPhotostream.m */; };
+		3F6BED9A15216FEF00A4CF26 /* MGStreamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9915216FEE00A4CF26 /* MGStreamRequest.m */; };
+		3F6BED9D1521942E00A4CF26 /* MGImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */; };
+		3F6BEDA01521946000A4CF26 /* MGPostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9F1521945F00A4CF26 /* MGPostRequest.m */; };
 		3FBB0A501518177F006715CE /* MGPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A4F1518177F006715CE /* MGPhoto.m */; };
-		3FBB0A5B15182312006715CE /* MGServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A5A15182312006715CE /* MGServiceClient.m */; };
 		A392A5D314FB58A9002E81E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D214FB58A9002E81E6 /* UIKit.framework */; };
 		A392A5D514FB58A9002E81E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D414FB58A9002E81E6 /* Foundation.framework */; };
 		A392A5D714FB58A9002E81E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D614FB58A9002E81E6 /* CoreGraphics.framework */; };
@@ -29,12 +30,14 @@
 /* Begin PBXFileReference section */
 		3F6BED9015205A7900A4CF26 /* MGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRequest.h; sourceTree = "<group>"; };
 		3F6BED9115205A7900A4CF26 /* MGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRequest.m; sourceTree = "<group>"; };
-		3FBB0A4A15181762006715CE /* MGPhotostream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotostream.h; sourceTree = "<group>"; };
-		3FBB0A4B15181762006715CE /* MGPhotostream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotostream.m; sourceTree = "<group>"; };
+		3F6BED9815216FEE00A4CF26 /* MGStreamRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGStreamRequest.h; sourceTree = "<group>"; };
+		3F6BED9915216FEE00A4CF26 /* MGStreamRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGStreamRequest.m; sourceTree = "<group>"; };
+		3F6BED9B1521942E00A4CF26 /* MGImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGImageRequest.h; sourceTree = "<group>"; };
+		3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGImageRequest.m; sourceTree = "<group>"; };
+		3F6BED9E1521945F00A4CF26 /* MGPostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPostRequest.h; sourceTree = "<group>"; };
+		3F6BED9F1521945F00A4CF26 /* MGPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPostRequest.m; sourceTree = "<group>"; };
 		3FBB0A4E1518177F006715CE /* MGPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhoto.h; sourceTree = "<group>"; };
 		3FBB0A4F1518177F006715CE /* MGPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhoto.m; sourceTree = "<group>"; };
-		3FBB0A5915182311006715CE /* MGServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGServiceClient.h; sourceTree = "<group>"; };
-		3FBB0A5A15182312006715CE /* MGServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGServiceClient.m; sourceTree = "<group>"; };
 		A392A5CE14FB58A9002E81E6 /* Minigram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minigram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A392A5D214FB58A9002E81E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A392A5D414FB58A9002E81E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -156,14 +159,16 @@
 		A392A5F514FB5B73002E81E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FBB0A4A15181762006715CE /* MGPhotostream.h */,
-				3FBB0A4B15181762006715CE /* MGPhotostream.m */,
 				3FBB0A4E1518177F006715CE /* MGPhoto.h */,
 				3FBB0A4F1518177F006715CE /* MGPhoto.m */,
-				3FBB0A5915182311006715CE /* MGServiceClient.h */,
-				3FBB0A5A15182312006715CE /* MGServiceClient.m */,
 				3F6BED9015205A7900A4CF26 /* MGRequest.h */,
 				3F6BED9115205A7900A4CF26 /* MGRequest.m */,
+				3F6BED9815216FEE00A4CF26 /* MGStreamRequest.h */,
+				3F6BED9915216FEE00A4CF26 /* MGStreamRequest.m */,
+				3F6BED9B1521942E00A4CF26 /* MGImageRequest.h */,
+				3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */,
+				3F6BED9E1521945F00A4CF26 /* MGPostRequest.h */,
+				3F6BED9F1521945F00A4CF26 /* MGPostRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,10 +253,11 @@
 				A392A5ED14FB5A32002E81E6 /* MGPhotostreamController.m in Sources */,
 				A392A5F414FB5AA8002E81E6 /* MGPhotoDetailController.m in Sources */,
 				A392A64014FC163D002E81E6 /* NSMutableData+MGMultipartFormData.m in Sources */,
-				3FBB0A4C15181762006715CE /* MGPhotostream.m in Sources */,
 				3FBB0A501518177F006715CE /* MGPhoto.m in Sources */,
-				3FBB0A5B15182312006715CE /* MGServiceClient.m in Sources */,
 				3F6BED9215205A7900A4CF26 /* MGRequest.m in Sources */,
+				3F6BED9A15216FEF00A4CF26 /* MGStreamRequest.m in Sources */,
+				3F6BED9D1521942E00A4CF26 /* MGImageRequest.m in Sources */,
+				3F6BEDA01521946000A4CF26 /* MGPostRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
