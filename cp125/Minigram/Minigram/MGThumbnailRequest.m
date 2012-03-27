@@ -1,14 +1,14 @@
 //
-//  MGImageRequest.m
+//  MGThumbnailRequest.m
 //  Minigram
 //
-//  Created by Jeremy McCarthy on 3/26/12.
+//  Created by Jeremy McCarthy on 3/27/12.
 //  Copyright (c) 2012 Luke Adamson. All rights reserved.
 //
 
-#import "MGImageRequest.h"
+#import "MGThumbnailRequest.h"
 
-@implementation MGImageRequest
+@implementation MGThumbnailRequest
 
 @synthesize photo = _photo;
 
@@ -31,14 +31,14 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 {
     [[self photo] setImage:nil];
     // Create the request object and connect
-    NSURLRequest *request = [NSURLRequest requestWithURL:[[self photo] imageUrl]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[[self photo] thumbnailUrl]];
     [self setHttpConnection:[[NSURLConnection alloc] initWithRequest:request delegate:self]];
     [super send];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection*)connection
 {
-    [[self photo] setImage:[UIImage imageWithData:[self responseData]]];
+    [[self photo] setThumbnail:[UIImage imageWithData:[self responseData]]];
 }
 
 @end

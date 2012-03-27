@@ -10,5 +10,5 @@
 #import "MGPhoto.h"
 
 @interface MGStreamRequest : MGRequest
-@property (nonatomic, retain) NSMutableArray *photoStream;
+@property (nonatomic, strong) NSMutableArray *photoStream;
 @end

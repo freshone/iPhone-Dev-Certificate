@@ -7,6 +7,9 @@
 //
 
 #import "MGPhotostreamController.h"
+#import "MGPhoto.h"
+#import "MGStreamRequest.h"
+#import "MGImageRequest.h"
 #import <QuartzCore/QuartzCore.h> // Used for specifying the shadow on the caption field background bar
 
 @interface MGPhotostreamController ()
@@ -21,6 +24,8 @@
 
 @property (nonatomic, strong) IBOutlet UIView *uploadProgressViewContainer;
 @property (nonatomic, strong) IBOutlet UIProgressView *uploadProgressView;
+@property (nonatomic, strong) NSMutableArray *photoStream;
+@property (nonatomic, strong) NSMutableArray *openConnections;
 
 @end
 
@@ -42,6 +47,8 @@
 @synthesize jpegData = _jpegData;
 @synthesize uploadProgressViewContainer = _uploadProgressViewContainer;
 @synthesize uploadProgressView = _uploadProgressView;
+@synthesize photoStream = _photoStream;
+@synthesize openConnections = _openConnections;
 
 #pragma mark - Initialization
 
@@ -66,6 +73,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    MGStreamRequest *streamRequest = [[MGStreamRequest alloc] init];
+    [streamRequest setDelegate:self];
+    [streamRequest send];
+    if([self openConnections] == nil)
+    {
+        [self setOpenConnections:[[NSMutableArray alloc] init]];
+    }
+    [[self openConnections] addObject:streamRequest];
+    [[self tableView] setRowHeight:60.0f];
 
     self.clearsSelectionOnViewWillAppear = YES;
 }
@@ -81,9 +98,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 3;
+    int numRows = [[self photoStream] count];
+    
+    if(numRows > 0)
+    {
+        return numRows;
+    }
+    else
+    {
+        return 7;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,7 +116,27 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-#warning Incomplete method implementation
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    if ([[self photoStream] count] > 0)
+	{
+        MGPhoto *photoAtIndex = [[self photoStream] objectAtIndex:[indexPath row]];
+        
+        NSLog(@"Title: %@", [photoAtIndex title]);
+		[[cell textLabel] setText:[photoAtIndex title]];
+        [[cell detailTextLabel] setText:[photoAtIndex username]];
+        [[cell imageView] setImage:[photoAtIndex thumbnail]];
+    }
+    else
+    {
+        [[cell textLabel] setText:@"Loading..."];
+        [[cell detailTextLabel] setText:@"Please wait"];
+    }
     
     return cell;
 }
@@ -211,5 +255,18 @@
         [self uploadNewPhotoWithImageData:self.jpegData caption:textField.text];
     }];
 }
+
+#pragma mark - MGRequestDelegate
+
+- (void)requestDidComplete:(MGRequest *)request
+{
+    if([request isKindOfClass:[MGStreamRequest class]])
+    {
+        [self setPhotoStream:[(MGStreamRequest*)request photoStream]];
+        [[self openConnections] removeObject:request];
+        [[self tableView] reloadData];
+    }
+}
+
 
 @end

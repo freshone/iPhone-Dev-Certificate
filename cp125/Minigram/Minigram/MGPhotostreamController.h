@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGRequest.h"
 
-@interface MGPhotostreamController : UITableViewController
+@interface MGPhotostreamController : UITableViewController <MGRequestDelegate>
 
 @end

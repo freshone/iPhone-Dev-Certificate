@@ -10,5 +10,5 @@
 #import "MGPhoto.h"
 
 @interface MGImageRequest : MGRequest
-@property (nonatomic, retain) MGPhoto *photo;
+@property (nonatomic, strong) MGPhoto *photo;
 @end

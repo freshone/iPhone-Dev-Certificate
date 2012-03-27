@@ -11,6 +11,7 @@
 		3F6BED9A15216FEF00A4CF26 /* MGStreamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9915216FEE00A4CF26 /* MGStreamRequest.m */; };
 		3F6BED9D1521942E00A4CF26 /* MGImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */; };
 		3F6BEDA01521946000A4CF26 /* MGPostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9F1521945F00A4CF26 /* MGPostRequest.m */; };
+		3F6BEDA31521C2F300A4CF26 /* MGThumbnailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BEDA21521C2F200A4CF26 /* MGThumbnailRequest.m */; };
 		3FBB0A501518177F006715CE /* MGPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB0A4F1518177F006715CE /* MGPhoto.m */; };
 		A392A5D314FB58A9002E81E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D214FB58A9002E81E6 /* UIKit.framework */; };
 		A392A5D514FB58A9002E81E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A392A5D414FB58A9002E81E6 /* Foundation.framework */; };
@@ -36,6 +37,8 @@
 		3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGImageRequest.m; sourceTree = "<group>"; };
 		3F6BED9E1521945F00A4CF26 /* MGPostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPostRequest.h; sourceTree = "<group>"; };
 		3F6BED9F1521945F00A4CF26 /* MGPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPostRequest.m; sourceTree = "<group>"; };
+		3F6BEDA11521C2F200A4CF26 /* MGThumbnailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGThumbnailRequest.h; sourceTree = "<group>"; };
+		3F6BEDA21521C2F200A4CF26 /* MGThumbnailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGThumbnailRequest.m; sourceTree = "<group>"; };
 		3FBB0A4E1518177F006715CE /* MGPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhoto.h; sourceTree = "<group>"; };
 		3FBB0A4F1518177F006715CE /* MGPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhoto.m; sourceTree = "<group>"; };
 		A392A5CE14FB58A9002E81E6 /* Minigram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minigram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +172,8 @@
 				3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */,
 				3F6BED9E1521945F00A4CF26 /* MGPostRequest.h */,
 				3F6BED9F1521945F00A4CF26 /* MGPostRequest.m */,
+				3F6BEDA11521C2F200A4CF26 /* MGThumbnailRequest.h */,
+				3F6BEDA21521C2F200A4CF26 /* MGThumbnailRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				3F6BED9A15216FEF00A4CF26 /* MGStreamRequest.m in Sources */,
 				3F6BED9D1521942E00A4CF26 /* MGImageRequest.m in Sources */,
 				3F6BEDA01521946000A4CF26 /* MGPostRequest.m in Sources */,
+				3F6BEDA31521C2F300A4CF26 /* MGThumbnailRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

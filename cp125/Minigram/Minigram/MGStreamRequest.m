@@ -32,6 +32,7 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 
 - (void)send
 {    
+    [self setPhotoStream:[[NSMutableArray alloc] init]];
     // Create the request object and connect
     NSMutableURLRequest *request =
     [NSMutableURLRequest requestWithURL:
@@ -41,7 +42,6 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
     [request setValue:API_KEY forHTTPHeaderField:API_KEY_FIELD];
     [request setValue:FORMAT forHTTPHeaderField:FORMAT_FIELD];
     [self setHttpConnection:[[NSURLConnection alloc] initWithRequest:request delegate:self]];
-    [self setPhotoStream:nil];
     [super send];
 }
 

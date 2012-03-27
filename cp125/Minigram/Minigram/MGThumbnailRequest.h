@@ -1,14 +1,15 @@
 //
-//  MGPostRequest.h
+//  MGThumbnailRequest.h
 //  Minigram
 //
-//  Created by Jeremy McCarthy on 3/26/12.
+//  Created by Jeremy McCarthy on 3/27/12.
 //  Copyright (c) 2012 Luke Adamson. All rights reserved.
 //
 
 #import "MGRequest.h"
 #import "MGPhoto.h"
 
-@interface MGPostRequest : MGRequest
+@interface MGThumbnailRequest : MGRequest
 @property (nonatomic, strong) MGPhoto *photo;
 @end
+

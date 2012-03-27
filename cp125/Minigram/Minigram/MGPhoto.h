@@ -10,15 +10,15 @@
 
 @interface MGPhoto : NSObject
 
-@property (nonatomic, assign) NSString *title;
-@property (nonatomic, assign) NSString *username;
-@property (nonatomic, assign) NSDate *createdAt;
-@property (nonatomic, assign) NSURL *url;
-@property (nonatomic, assign) NSURL *imageUrl;
-@property (nonatomic, assign) NSURL *thumbnailUrl;
-@property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) UIImage *thumbnail;
-@property (nonatomic, assign) NSString *longitude;
-@property (nonatomic, assign) NSString *latitude;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSURL *imageUrl;
+@property (nonatomic, strong) NSURL *thumbnailUrl;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage *thumbnail;
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *latitude;
 
 @end
