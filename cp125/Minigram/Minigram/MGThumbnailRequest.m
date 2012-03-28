@@ -11,6 +11,7 @@
 @implementation MGThumbnailRequest
 
 @synthesize photo = _photo;
+@synthesize indexPath = _indexPath;
 
 #pragma mark -
 #pragma mark Constant Declarations
@@ -29,7 +30,7 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 
 - (void)send
 {
-    [[self photo] setImage:nil];
+    [[self photo] setThumbnail:nil];
     // Create the request object and connect
     NSURLRequest *request = [NSURLRequest requestWithURL:[[self photo] thumbnailUrl]];
     [self setHttpConnection:[[NSURLConnection alloc] initWithRequest:request delegate:self]];
@@ -39,6 +40,7 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 - (void)connectionDidFinishLoading:(NSURLConnection*)connection
 {
     [[self photo] setThumbnail:[UIImage imageWithData:[self responseData]]];
+    [[self delegate] requestDidComplete:self];
 }
 
 @end

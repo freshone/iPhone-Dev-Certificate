@@ -11,5 +11,6 @@
 
 @interface MGThumbnailRequest : MGRequest
 @property (nonatomic, strong) MGPhoto *photo;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @end
 

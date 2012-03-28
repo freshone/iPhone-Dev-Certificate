@@ -48,12 +48,6 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
     [[self delegate] requestDidFail:self];
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response
-{
-    NSString *responseEncoding = [[NSString alloc] initWithString:[response textEncodingName]];
-    [self setEncoding:CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef) responseEncoding))];
-}
-
 - (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
 {
     [[self responseData] appendData:data];

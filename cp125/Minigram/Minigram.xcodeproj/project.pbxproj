@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F06C9A115230701004424AB /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F06C9A015230701004424AB /* Placeholder.png */; };
 		3F6BED9215205A7900A4CF26 /* MGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9115205A7900A4CF26 /* MGRequest.m */; };
 		3F6BED9A15216FEF00A4CF26 /* MGStreamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9915216FEE00A4CF26 /* MGStreamRequest.m */; };
 		3F6BED9D1521942E00A4CF26 /* MGImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BED9C1521942E00A4CF26 /* MGImageRequest.m */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F06C9A015230701004424AB /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		3F6BED9015205A7900A4CF26 /* MGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRequest.h; sourceTree = "<group>"; };
 		3F6BED9115205A7900A4CF26 /* MGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRequest.m; sourceTree = "<group>"; };
 		3F6BED9815216FEE00A4CF26 /* MGStreamRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGStreamRequest.h; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				A392A5EB14FB5A32002E81E6 /* MGPhotostreamController.h */,
 				A392A5EC14FB5A32002E81E6 /* MGPhotostreamController.m */,
 				A392A5FA14FB660D002E81E6 /* MGCaptionBar.xib */,
+				3F06C9A015230701004424AB /* Placeholder.png */,
 				A392A5F814FB65AC002E81E6 /* camera-button-bar-background.png */,
 				A392A5F614FB656F002E81E6 /* camera-button-bar-background@2x.png */,
 			);
@@ -243,6 +246,7 @@
 				A392A5F714FB656F002E81E6 /* camera-button-bar-background@2x.png in Resources */,
 				A392A5F914FB65AC002E81E6 /* camera-button-bar-background.png in Resources */,
 				A392A5FB14FB660D002E81E6 /* MGCaptionBar.xib in Resources */,
+				3F06C9A115230701004424AB /* Placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

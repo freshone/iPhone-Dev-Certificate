@@ -10,6 +10,7 @@
 #import "MGPhoto.h"
 #import "MGStreamRequest.h"
 #import "MGImageRequest.h"
+#import "MGThumbnailRequest.h"
 #import <QuartzCore/QuartzCore.h> // Used for specifying the shadow on the caption field background bar
 
 @interface MGPhotostreamController ()
@@ -74,16 +75,18 @@
 {
     [super viewDidLoad];
     
-    MGStreamRequest *streamRequest = [[MGStreamRequest alloc] init];
-    [streamRequest setDelegate:self];
-    [streamRequest send];
-    if([self openConnections] == nil)
+    if([[self photoStream] count] == 0)
     {
-        [self setOpenConnections:[[NSMutableArray alloc] init]];
+        MGStreamRequest *streamRequest = [[MGStreamRequest alloc] init];
+        [streamRequest setDelegate:self];
+        [streamRequest send];
+        if([self openConnections] == nil)
+        {
+            [self setOpenConnections:[[NSMutableArray alloc] init]];
+        }
+        [[self openConnections] addObject:streamRequest];
     }
-    [[self openConnections] addObject:streamRequest];
     [[self tableView] setRowHeight:60.0f];
-
     self.clearsSelectionOnViewWillAppear = YES;
 }
 
@@ -127,18 +130,47 @@
 	{
         MGPhoto *photoAtIndex = [[self photoStream] objectAtIndex:[indexPath row]];
         
-        NSLog(@"Title: %@", [photoAtIndex title]);
 		[[cell textLabel] setText:[photoAtIndex title]];
         [[cell detailTextLabel] setText:[photoAtIndex username]];
-        [[cell imageView] setImage:[photoAtIndex thumbnail]];
+        
+        if([photoAtIndex thumbnail] != nil)
+        {
+            [[cell imageView] setImage:[photoAtIndex thumbnail]];
+        }
+        else
+        {
+            [[cell imageView] setImage:[UIImage imageNamed:@"Placeholder.png"]];
+        }
     }
     else
     {
         [[cell textLabel] setText:@"Loading..."];
         [[cell detailTextLabel] setText:@"Please wait"];
+        [[cell imageView] setImage:[UIImage imageNamed:@"Placeholder.png"]];
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[self photoStream] count] > 0)
+	{
+        MGPhoto *photoAtIndex = [[self photoStream] objectAtIndex:[indexPath row]];        
+        if([photoAtIndex thumbnail] == nil)
+        {
+            MGThumbnailRequest *thumbnailRequest = [[MGThumbnailRequest alloc] init];
+            [thumbnailRequest setDelegate:self];
+            [thumbnailRequest setPhoto:photoAtIndex];
+            [thumbnailRequest setIndexPath:indexPath];
+            [thumbnailRequest send];
+            [[self openConnections] addObject:thumbnailRequest];
+        }
+        else
+        {
+            [[cell imageView] setImage:[photoAtIndex thumbnail]];
+        }
+    }
 }
 
 - (IBAction)refreshButtonTapped;
@@ -260,11 +292,19 @@
 
 - (void)requestDidComplete:(MGRequest *)request
 {
+    // We always want to remove the request from our queue if it's done
+    [[self openConnections] removeObject:request];
+    
     if([request isKindOfClass:[MGStreamRequest class]])
     {
         [self setPhotoStream:[(MGStreamRequest*)request photoStream]];
-        [[self openConnections] removeObject:request];
         [[self tableView] reloadData];
+    }
+    if([request isKindOfClass:[MGThumbnailRequest class]])
+    {
+        MGThumbnailRequest *thumbnailRequest = (MGThumbnailRequest *)request;
+        UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[thumbnailRequest indexPath]];
+        [[cell imageView] setImage:[[thumbnailRequest photo] thumbnail]];
     }
 }
 

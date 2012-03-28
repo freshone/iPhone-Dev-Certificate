@@ -48,6 +48,12 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 #pragma mark -
 #pragma mark NSURLConnectionDelegate Implementation
 
+- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response
+{
+    NSString *responseEncoding = [[NSString alloc] initWithString:[response textEncodingName]];
+    [self setEncoding:CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef) responseEncoding))];
+}
+
 - (void)connectionDidFinishLoading:(NSURLConnection*)connection
 {
     //parse json and store photostream
