@@ -27,6 +27,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection*)connection
 {
     [[self photo] setImage:[UIImage imageWithData:[self responseData]]];
+    [[self delegate] requestDidComplete:self];
 }
 
 @end

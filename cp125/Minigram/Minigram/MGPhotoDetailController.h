@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGPhoto.h"
+#import "MGRequest.h"
 
-@interface MGPhotoDetailController : UIViewController
-
+@interface MGPhotoDetailController : UIViewController <MGRequestDelegate>
+@property (nonatomic, strong) MGPhoto *photo;
 @end

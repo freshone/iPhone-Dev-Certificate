@@ -15,8 +15,11 @@
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic, assign) NSStringEncoding encoding;
 @property (nonatomic, strong) NSURLConnection *httpConnection;
+@property (nonatomic, assign) unsigned short retryCount;
+@property (nonatomic, assign) unsigned short maxRetryCount;
 - (void)send;
 - (void)cancel;
+- (bool)retry;
 @end
 
 @protocol MGRequestDelegate <NSObject>

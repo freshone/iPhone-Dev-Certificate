@@ -160,6 +160,7 @@
         if([photoAtIndex thumbnail] == nil)
         {
             MGThumbnailRequest *thumbnailRequest = [[MGThumbnailRequest alloc] init];
+            [thumbnailRequest setMaxRetryCount:1];
             [thumbnailRequest setDelegate:self];
             [thumbnailRequest setPhoto:photoAtIndex];
             [thumbnailRequest setIndexPath:indexPath];
@@ -170,6 +171,17 @@
         {
             [[cell imageView] setImage:[photoAtIndex thumbnail]];
         }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
+    
+    if ([[segue identifier] isEqualToString:@"ShowPhotoDetailSegue"])
+    {
+        MGPhoto *selectedPhoto = [[self photoStream] objectAtIndex:[indexPath row]];
+        [[segue destinationViewController] setPhoto:selectedPhoto];
     }
 }
 
@@ -308,5 +320,9 @@
     }
 }
 
+- (void)requestDidFail:(MGRequest *)request
+{
+    [request retry];
+}
 
 @end

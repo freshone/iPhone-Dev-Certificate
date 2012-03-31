@@ -14,6 +14,8 @@
 @synthesize responseData = _responseData;
 @synthesize encoding = _encoding;
 @synthesize httpConnection = _httpConnection;
+@synthesize retryCount = _retryCount;
+@synthesize maxRetryCount = _maxRetryCount;
 
 #pragma mark -
 #pragma mark Constant Declarations
@@ -32,12 +34,27 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 
 - (void)send
 {
+    [self setRetryCount:0];
     [self setResponseData:[[NSMutableData alloc] init]];
 }
 
 - (void)cancel
 {
     [[self httpConnection] cancel];
+}
+
+- (bool)retry
+{
+    if([self retryCount] < [self maxRetryCount])
+    {
+        [self setRetryCount:[self retryCount] + 1];
+        [self send];
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 #pragma mark -
@@ -57,6 +74,5 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
 {
     NSLog(@"Response:\n\n%@", [[NSString alloc]initWithData:[self responseData] encoding:[self encoding]]);
 }
-
 
 @end

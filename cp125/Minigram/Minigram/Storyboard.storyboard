@@ -39,7 +39,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="vWu-RI-bfV" kind="push" id="FLr-EJ-372"/>
+                                    <segue destination="vWu-RI-bfV" kind="push" identifier="ShowPhotoDetailSegue" id="FLr-EJ-372"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,6 +80,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="I0o-Ou-e11"/>
+                    <connections>
+                        <outlet property="imageView" destination="vH2-7s-pKu" id="XMH-PL-1nY"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="979" y="113"/>
@@ -105,6 +108,9 @@
     <classes>
         <class className="MGPhotoDetailController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MGPhotoDetailController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
         </class>
         <class className="MGPhotostreamController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MGPhotostreamController.h"/>
