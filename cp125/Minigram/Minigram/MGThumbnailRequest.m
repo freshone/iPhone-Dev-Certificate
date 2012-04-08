@@ -19,7 +19,6 @@
 - (void)send
 {
     [[self photo] setThumbnail:nil];
-    // Create the request object and connect
     NSURLRequest *request = [NSURLRequest requestWithURL:[[self photo] thumbnailUrl]];
     [self setHttpConnection:[[NSURLConnection alloc] initWithRequest:request delegate:self]];
     [super send];
@@ -42,6 +41,8 @@
     }
     
     [[self photo] setThumbnail:image];
+    [self setResponseData:nil];
+    [self setHttpConnection:nil];
     [[self delegate] requestDidComplete:self];
 }
 

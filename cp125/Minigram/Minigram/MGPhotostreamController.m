@@ -10,6 +10,7 @@
 #import "MGPhoto.h"
 #import "MGStreamRequest.h"
 #import "MGImageRequest.h"
+#import "MGPostRequest.h"
 #import "MGThumbnailRequest.h"
 #import <QuartzCore/QuartzCore.h> // Used for specifying the shadow on the caption field background bar
 
@@ -23,16 +24,17 @@
 - (void)showUploadProgress;
 - (void)hideUploadProgress;
 
-@property (nonatomic, strong) IBOutlet UIView *uploadProgressViewContainer;
+- (void)loadThumbnailsForVisibleRows;
+- (void)releaseImagesFromStream;
+
 @property (nonatomic, strong) IBOutlet UIProgressView *uploadProgressView;
 @property (nonatomic, strong) NSMutableArray *photoStream;
 @property (nonatomic, strong) NSMutableArray *openConnections;
-
+@property (nonatomic, strong) MGStreamRequest *streamRequest;
 @end
 
 // The following class extension is here to support taking photos and collecting an optional caption.
 @interface MGPhotostreamController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
-
 - (void)presentCameraController;
 @property (nonatomic, strong) IBOutlet UIView *captionBar;
 @property (nonatomic, strong) IBOutlet UITextField *captionField;
@@ -46,27 +48,45 @@
 @synthesize captionBar = _captionBar;
 @synthesize captionField = _captionField;
 @synthesize jpegData = _jpegData;
-@synthesize uploadProgressViewContainer = _uploadProgressViewContainer;
 @synthesize uploadProgressView = _uploadProgressView;
 @synthesize photoStream = _photoStream;
 @synthesize openConnections = _openConnections;
+@synthesize streamRequest = _streamRequest;
 
 #pragma mark - Initialization
 
 - (id)initWithCoder:(NSCoder *)coder;
 {
-    if ((self = [super initWithCoder:coder])) {
-        // Custom initialization
+    if ((self = [super initWithCoder:coder]))
+    {
+        [self setOpenConnections:[[NSMutableArray alloc] init]];
+        [self setUploadProgressView:[[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar]];
     }
     return self;
 }
 
 - (void)didReceiveMemoryWarning
 {
+    NSLog(@"didReceiveMemoryWarning PARENT");
+    [self releaseImagesFromStream];
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
+}
+
+- (void)releaseImagesFromStream
+{
+    NSLog(@"Releasing photos from memory");
     
-    // Release any cached data, images, etc that aren't in use.
+    NSIndexPath *pathToSelectedRow = [[self tableView] indexPathForSelectedRow];
+    MGPhoto *selectedPhoto = [[self photoStream] objectAtIndex:[pathToSelectedRow row]];
+    
+    for(MGPhoto *photo in [self photoStream])
+    {
+        if(![photo isEqual:selectedPhoto])
+        {
+            [photo setImage:nil];            
+        }
+    }
 }
 
 #pragma mark - View lifecycle
@@ -75,16 +95,9 @@
 {
     [super viewDidLoad];
     
-    if([[self photoStream] count] == 0)
+    if([self photoStream] == nil)
     {
-        MGStreamRequest *streamRequest = [[MGStreamRequest alloc] init];
-        [streamRequest setDelegate:self];
-        [streamRequest send];
-        if([self openConnections] == nil)
-        {
-            [self setOpenConnections:[[NSMutableArray alloc] init]];
-        }
-        [[self openConnections] addObject:streamRequest];
+        [self refreshButtonTapped];
     }
     [[self tableView] setRowHeight:60.0f];
     self.clearsSelectionOnViewWillAppear = YES;
@@ -93,6 +106,9 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [[self openConnections] makeObjectsPerformSelector:@selector(cancel:)];
+    [[self streamRequest] cancel];
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -125,7 +141,6 @@
         cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
     if ([[self photoStream] count] > 0)
 	{
         MGPhoto *photoAtIndex = [[self photoStream] objectAtIndex:[indexPath row]];
@@ -152,28 +167,6 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[self photoStream] count] > 0)
-	{
-        MGPhoto *photoAtIndex = [[self photoStream] objectAtIndex:[indexPath row]];        
-        if([photoAtIndex thumbnail] == nil)
-        {
-            MGThumbnailRequest *thumbnailRequest = [[MGThumbnailRequest alloc] init];
-            [thumbnailRequest setMaxRetryCount:1];
-            [thumbnailRequest setDelegate:self];
-            [thumbnailRequest setPhoto:photoAtIndex];
-            [thumbnailRequest setIndexPath:indexPath];
-            [thumbnailRequest send];
-            [[self openConnections] addObject:thumbnailRequest];
-        }
-        else
-        {
-            [[cell imageView] setImage:[photoAtIndex thumbnail]];
-        }
-    }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
@@ -185,9 +178,59 @@
     }
 }
 
+#pragma mark Deferred image loading (UIScrollViewDelegate)
+
+// Load images for all onscreen rows when scrolling is finished
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadThumbnailsForVisibleRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadThumbnailsForVisibleRows];
+}
+
+- (void)loadThumbnailsForVisibleRows
+{
+    if ([[self photoStream] count] > 0)
+	{
+        NSArray *visibleRowPaths = [[self tableView] indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visibleRowPaths)
+        {
+            MGPhoto *photoAtIndex = [[self photoStream] objectAtIndex:[indexPath row]];        
+            if([photoAtIndex thumbnail] == nil)
+            {
+                MGThumbnailRequest *thumbnailRequest = [[MGThumbnailRequest alloc] init];
+                [thumbnailRequest setMaxRetryCount:1];
+                [thumbnailRequest setDelegate:self];
+                [thumbnailRequest setPhoto:photoAtIndex];
+                [thumbnailRequest setIndexPath:indexPath];
+                [thumbnailRequest send];
+                [[self openConnections] addObject:thumbnailRequest];
+            }
+            else
+            {
+                UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:indexPath];
+                [[cell imageView] setImage:[photoAtIndex thumbnail]];
+            }
+        }
+    }
+}
+
+#pragma mark - Button, camera, and caption management
+
 - (IBAction)refreshButtonTapped;
 {
-#warning Incomplete method implementation
+    if([self streamRequest] == nil)
+    {
+        [self setStreamRequest:[[MGStreamRequest alloc] init]];
+        [[self streamRequest] setDelegate:self];
+        [[self streamRequest] send];
+    }
 }
 
 - (IBAction)cameraButtonTapped;
@@ -197,9 +240,17 @@
 
 - (void)uploadNewPhotoWithImageData:(NSData *)jpegData caption:(NSString *)caption;
 {
-#warning Incomplete method implementation
+    MGPhoto *newPhoto = [[MGPhoto alloc] init];
+    [newPhoto setImage:[UIImage imageWithData:jpegData]];
+    [newPhoto setTitle:caption];
     
-    // You need to create a POST request here, either directly or indirectly (perhaps using an intermediate object in your model), to upload the new photo to the Minigram server (http://minigram.herokuapp.com/photos.json). Your POST will need to include your Minigram API key, the proper content type header, and a properly encoded request body (including the image, and its metadata, such as the title/caption). To create a multipart form data request, you can use the categories declared in NSMutableData+MGMultipartFormData.h.
+    MGPostRequest *postRequest = [[MGPostRequest alloc] init];
+    [postRequest setMaxRetryCount:1];
+    [postRequest setDelegate:self];
+    [postRequest setPhoto:newPhoto];
+    [postRequest send];
+    [[self openConnections] addObject:postRequest];
+    [self showUploadProgress];
 }
 
 - (void)uploadDidFinish;
@@ -209,18 +260,16 @@
 
 - (void)showUploadProgress;
 {
-    // Prevent the user from taking another photo and start displaying "upload in progress" feedback
+    [[self navigationItem] setTitleView:[self uploadProgressView]];
+    [[self uploadProgressView] setProgress:0.0f];
+    [[[self navigationItem] leftBarButtonItem] setEnabled:NO];
 }
 
 - (void)hideUploadProgress;
 {
-    // Enable camera button
-    self.navigationItem.leftBarButtonItem.enabled = YES;
-    
-    self.navigationItem.titleView = nil;
+    [[[self navigationItem] leftBarButtonItem] setEnabled:YES];
+    [[self navigationItem] setTitleView:nil];
 }
-
-#pragma mark - Camera and caption management
 
 - (void)presentCameraController;
 {
@@ -303,14 +352,31 @@
 #pragma mark - MGRequestDelegate
 
 - (void)requestDidComplete:(MGRequest *)request
-{
-    // We always want to remove the request from our queue if it's done
-    [[self openConnections] removeObject:request];
-    
+{    
     if([request isKindOfClass:[MGStreamRequest class]])
     {
-        [self setPhotoStream:[(MGStreamRequest*)request photoStream]];
+        NSMutableArray *newPhotoStream = [(MGStreamRequest*)request photoStream];
+        // If we don't have a photo stream yet, just take it all
+        if([self photoStream] == nil)
+        {
+            [self setPhotoStream:newPhotoStream];
+        }
+        else
+        {
+            NSUInteger newPhotoCount = [newPhotoStream count] - [[self photoStream] count];
+            for(NSUInteger i = 0; i < newPhotoCount; i++)
+            {
+                // Let's make double sure we don't have this photo already
+                if(![[self photoStream] containsObject:[newPhotoStream objectAtIndex:i]])
+                {
+                    [[self photoStream] insertObject:[newPhotoStream objectAtIndex:i] atIndex:i];
+                }
+            }
+        }
+        
         [[self tableView] reloadData];
+        [self loadThumbnailsForVisibleRows];
+        [self setStreamRequest:nil];
     }
     if([request isKindOfClass:[MGThumbnailRequest class]])
     {
@@ -318,6 +384,19 @@
         UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[thumbnailRequest indexPath]];
         [[cell imageView] setImage:[[thumbnailRequest photo] thumbnail]];
     }
+    if([request isKindOfClass:[MGPostRequest class]])
+    {
+        [self hideUploadProgress];
+        [self refreshButtonTapped];
+    }
+    
+    [[self openConnections] removeObject:request];
+    request = nil;
+}
+
+- (void)requestDidUpdate:(MGRequest *)request
+{
+    [[self uploadProgressView] setProgress:[request percentComplete]];
 }
 
 - (void)requestDidFail:(MGRequest *)request

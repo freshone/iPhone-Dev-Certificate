@@ -79,6 +79,8 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
         [[self photoStream] addObject:parsedPhoto];
     }
     
+    [self setHttpConnection:nil];
+    [self setResponseData:nil];
     [[self delegate] requestDidComplete:self];
 }
 

@@ -10,5 +10,6 @@
 #import "MGPhoto.h"
 
 @interface MGImageRequest : MGRequest
-@property (nonatomic, strong) MGPhoto *photo;
+@property (nonatomic, weak) MGPhoto *photo;
+@property (nonatomic, assign) long long expectedFilesize;
 @end

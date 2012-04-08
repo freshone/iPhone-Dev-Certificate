@@ -10,11 +10,12 @@
 
 @protocol MGRequestDelegate;
 
-@interface MGRequest : NSObject <NSURLConnectionDelegate>
+@interface MGRequest : NSObject <NSURLConnectionDataDelegate>
 @property (nonatomic, strong) id<MGRequestDelegate> delegate;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic, assign) NSStringEncoding encoding;
 @property (nonatomic, strong) NSURLConnection *httpConnection;
+@property (nonatomic, assign) float percentComplete;
 @property (nonatomic, assign) unsigned short retryCount;
 @property (nonatomic, assign) unsigned short maxRetryCount;
 - (void)send;

@@ -55,4 +55,17 @@ static NSString * const PHOTO_FILENAME = @"no-filename.jpg";
     [super send];
 }
 
+- (void)connection:(NSURLConnection*)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    [self setPercentComplete:((float)totalBytesWritten / totalBytesExpectedToWrite)];
+    [[self delegate] requestDidUpdate:self];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection*)connection
+{
+    [self setResponseData:nil];
+    [self setHttpConnection:nil];
+    [[self delegate] requestDidComplete:self];
+}
+
 @end

@@ -11,13 +11,17 @@
 
 @interface MGPhotoDetailController ()
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIProgressView *downloadProgressView;
 @property (nonatomic, strong) MGImageRequest *imageRequest;
+- (void)showDownloadProgress;
+- (void)hideDownloadProgress;
 @end
 
 @implementation MGPhotoDetailController
 
 @synthesize photo = _photo;
 @synthesize imageView = _imageView;
+@synthesize downloadProgressView = _downloadProgressView;
 @synthesize imageRequest = _imageRequest;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,10 +36,10 @@
 
 - (void)didReceiveMemoryWarning
 {
+    NSLog(@"didReceiveMemoryWarning DETAIL");
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+    [[self parentViewController] didReceiveMemoryWarning];
 }
 
 #pragma mark - View lifecycle
@@ -57,6 +61,7 @@
         [[self imageRequest] setMaxRetryCount:2];
         [[self imageRequest] setDelegate:self];
         [[self imageRequest] setPhoto:[self photo]];
+        [self showDownloadProgress];
         [[self imageRequest] send];
     }
     else
@@ -70,6 +75,21 @@
 {
     [super viewDidUnload];
     [[self imageRequest] cancel];
+    [self setImageRequest:nil];
+}
+
+- (void)showDownloadProgress
+{
+    [self setDownloadProgressView:[[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar]];
+    [[self navigationItem] setTitleView:[self downloadProgressView]];
+    [[self downloadProgressView] setProgress:0.0f];
+    [[[self navigationItem] leftBarButtonItem] setEnabled:NO];
+}
+
+- (void)hideDownloadProgress
+{
+    [[[self navigationItem] leftBarButtonItem] setEnabled:YES];
+    [[self navigationItem] setTitleView:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -86,7 +106,15 @@
     {
         [[self imageView] setImage:[[self photo] image]];
         [[self imageView] setNeedsDisplay];
+        [self hideDownloadProgress];
     }
+    
+    [self setImageRequest:nil];
+}
+
+- (void)requestDidUpdate:(MGRequest *)request
+{
+    [[self downloadProgressView] setProgress:[request percentComplete]];
 }
 
 - (void)requestDidFail:(MGRequest *)request

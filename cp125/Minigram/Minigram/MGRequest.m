@@ -14,6 +14,7 @@
 @synthesize responseData = _responseData;
 @synthesize encoding = _encoding;
 @synthesize httpConnection = _httpConnection;
+@synthesize percentComplete = _percentComplete;
 @synthesize retryCount = _retryCount;
 @synthesize maxRetryCount = _maxRetryCount;
 

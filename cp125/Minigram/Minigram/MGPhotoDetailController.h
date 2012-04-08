@@ -11,5 +11,5 @@
 #import "MGRequest.h"
 
 @interface MGPhotoDetailController : UIViewController <MGRequestDelegate>
-@property (nonatomic, strong) MGPhoto *photo;
+@property (nonatomic, weak) MGPhoto *photo;
 @end

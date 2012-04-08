@@ -21,4 +21,9 @@
 @synthesize longitude = _longitude;
 @synthesize latitude = _latitude;
 
+-(BOOL)isEqual:(id)object
+{
+    return [self url] == [object url];
+}
+
 @end
