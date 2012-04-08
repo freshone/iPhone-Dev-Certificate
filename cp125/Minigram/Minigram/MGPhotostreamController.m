@@ -61,6 +61,7 @@
     {
         [self setOpenConnections:[[NSMutableArray alloc] init]];
         [self setUploadProgressView:[[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar]];
+        [[[self navigationController] navigationBar] setTintColor:[UIColor orangeColor]];
     }
     return self;
 }
