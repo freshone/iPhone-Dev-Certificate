@@ -15,6 +15,7 @@
 		3FD150D21532D67500CFB828 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD150D11532D67500CFB828 /* AppDelegate.m */; };
 		3FD150D51532D67500CFB828 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD150D41532D67500CFB828 /* ViewController.m */; };
 		3FD150D81532D67500CFB828 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD150D61532D67500CFB828 /* ViewController.xib */; };
+		3FD150F91532D77E00CFB828 /* yellow-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD150F81532D77E00CFB828 /* yellow-tile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +23,16 @@
 		3FD150C11532D67500CFB828 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3FD150C31532D67500CFB828 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FD150C51532D67500CFB828 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3FD150C91532D67500CFB828 /* SliderPuzzle-Info.plist */ = {isa = PBXFileReference; path = "SliderPuzzle-Info.plist"; sourceTree = "<group>"; };
+		3FD150C91532D67500CFB828 /* SliderPuzzle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SliderPuzzle-Info.plist"; sourceTree = "<group>"; };
 		3FD150CB1532D67500CFB828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FD150CD1532D67500CFB828 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3FD150CF1532D67500CFB828 /* SliderPuzzle-Prefix.pch */ = {isa = PBXFileReference; path = "SliderPuzzle-Prefix.pch"; sourceTree = "<group>"; };
-		3FD150D01532D67500CFB828 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3FD150CF1532D67500CFB828 /* SliderPuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SliderPuzzle-Prefix.pch"; sourceTree = "<group>"; };
+		3FD150D01532D67500CFB828 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FD150D11532D67500CFB828 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3FD150D31532D67500CFB828 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		3FD150D31532D67500CFB828 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3FD150D41532D67500CFB828 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3FD150D71532D67500CFB828 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		3FD150F81532D77E00CFB828 /* yellow-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yellow-tile.png"; path = "images/yellow-tile.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				3FD150D31532D67500CFB828 /* ViewController.h */,
 				3FD150D41532D67500CFB828 /* ViewController.m */,
 				3FD150D61532D67500CFB828 /* ViewController.xib */,
+				3FD150DE1532D73C00CFB828 /* Images */,
 				3FD150C81532D67500CFB828 /* Supporting Files */,
 			);
 			path = SliderPuzzle;
@@ -96,6 +99,14 @@
 				3FD150CF1532D67500CFB828 /* SliderPuzzle-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FD150DE1532D73C00CFB828 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3FD150F81532D77E00CFB828 /* yellow-tile.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			files = (
 				3FD150CC1532D67500CFB828 /* InfoPlist.strings in Resources */,
 				3FD150D81532D67500CFB828 /* ViewController.xib in Resources */,
+				3FD150F91532D77E00CFB828 /* yellow-tile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

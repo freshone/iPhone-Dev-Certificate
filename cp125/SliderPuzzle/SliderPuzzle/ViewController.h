@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate>
+@property (nonatomic, strong) IBOutlet UIImageView *tileView;
+- (void)panTile:(UIPanGestureRecognizer *)gestureRecognizer;
 @end
