@@ -10,7 +10,7 @@
 #import "MGPhoto.h"
 
 @interface MGThumbnailRequest : MGRequest
-@property (nonatomic, weak) MGPhoto *photo;
+@property (nonatomic, strong) MGPhoto *photo;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @end
 

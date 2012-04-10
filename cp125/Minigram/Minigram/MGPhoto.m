@@ -23,7 +23,7 @@
 
 -(BOOL)isEqual:(id)object
 {
-    return [self url] == [object url];
+    return [[self url] isEqual:[object url]];
 }
 
 @end
