@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4879881533C09C002EE5DE /* PuzzleTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4879871533C09C002EE5DE /* PuzzleTile.m */; };
 		3FD150C21532D67500CFB828 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C11532D67500CFB828 /* UIKit.framework */; };
 		3FD150C41532D67500CFB828 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C31532D67500CFB828 /* Foundation.framework */; };
 		3FD150C61532D67500CFB828 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C51532D67500CFB828 /* CoreGraphics.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F4879861533C09C002EE5DE /* PuzzleTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleTile.h; sourceTree = "<group>"; };
+		3F4879871533C09C002EE5DE /* PuzzleTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleTile.m; sourceTree = "<group>"; };
 		3FD150BD1532D67500CFB828 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD150C11532D67500CFB828 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3FD150C31532D67500CFB828 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,6 +52,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F48797C1533C002002EE5DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3FD150D01532D67500CFB828 /* AppDelegate.h */,
+				3FD150D11532D67500CFB828 /* AppDelegate.m */,
+				3FD150D31532D67500CFB828 /* ViewController.h */,
+				3FD150D41532D67500CFB828 /* ViewController.m */,
+				3FD150D61532D67500CFB828 /* ViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3F48797E1533C013002EE5DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F4879861533C09C002EE5DE /* PuzzleTile.h */,
+				3F4879871533C09C002EE5DE /* PuzzleTile.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		3FD150B21532D67500CFB828 = {
 			isa = PBXGroup;
 			children = (
@@ -79,11 +103,8 @@
 		3FD150C71532D67500CFB828 /* SliderPuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				3FD150D01532D67500CFB828 /* AppDelegate.h */,
-				3FD150D11532D67500CFB828 /* AppDelegate.m */,
-				3FD150D31532D67500CFB828 /* ViewController.h */,
-				3FD150D41532D67500CFB828 /* ViewController.m */,
-				3FD150D61532D67500CFB828 /* ViewController.xib */,
+				3F48797E1533C013002EE5DE /* Model */,
+				3F48797C1533C002002EE5DE /* Controller */,
 				3FD150DE1532D73C00CFB828 /* Images */,
 				3FD150C81532D67500CFB828 /* Supporting Files */,
 			);
@@ -175,6 +196,7 @@
 				3FD150CE1532D67500CFB828 /* main.m in Sources */,
 				3FD150D21532D67500CFB828 /* AppDelegate.m in Sources */,
 				3FD150D51532D67500CFB828 /* ViewController.m in Sources */,
+				3F4879881533C09C002EE5DE /* PuzzleTile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +308,7 @@
 				3FD150DD1532D67500CFB828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
