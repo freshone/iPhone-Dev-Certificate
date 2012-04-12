@@ -11,13 +11,14 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+- (void)generateGridViews;
+- (void)panTile:(UIPanGestureRecognizer *)gestureRecognizer;
 @end
 
 @implementation ViewController
 
-@synthesize tileModelGrid = _tileModelGrid;
-@synthesize tileViewGrid = _tileViewGrid;
+@synthesize puzzleGrid = _puzzleGrid;
+@synthesize viewGrid = _tileViewGrid;
 
 static const NSUInteger GRID_SIZE = 3;
 static const NSUInteger TILE_SIZE = 100;
@@ -28,25 +29,9 @@ static const NSUInteger GAP_SIZE = 5;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    UIImage *tileImage = [UIImage imageNamed:@"yellow-tile.png"];
-    
-    for(int i = 0; i < GRID_SIZE * GRID_SIZE - 1; i++)
-    {
-        UIImageView *newView = [[UIImageView alloc] initWithImage:tileImage];
-        [newView setUserInteractionEnabled:YES];
-        CGFloat x = (i % GRID_SIZE) * TILE_SIZE + (i % GRID_SIZE) * GAP_SIZE;
-        CGFloat y = (i / GRID_SIZE) * TILE_SIZE + (i / GRID_SIZE) * GAP_SIZE;
-        [newView setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
-        
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
-        [panGesture setMaximumNumberOfTouches:2];
-        [panGesture setDelegate:self];        
-        [newView addGestureRecognizer:panGesture];
-        
-        // Add tile to main view
-        [[self view] addSubview:newView];
-    }
+    [self setPuzzleGrid:[[PuzzleGrid alloc] init]];
+    [[self puzzleGrid] generateWithSize:GRID_SIZE];
+    [self generateGridViews];
 }
 
 - (void)viewDidUnload
@@ -58,6 +43,35 @@ static const NSUInteger GAP_SIZE = 5;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)generateGridViews
+{
+    UIImage *tileImage = [UIImage imageNamed:@"yellow-tile.png"];
+    
+    for(NSUInteger i = 0; i < GRID_SIZE * GRID_SIZE - 1; i++)
+    {
+        UIImageView *newTileView = [[UIImageView alloc] initWithImage:tileImage];
+        CGFloat x = (i % GRID_SIZE) * TILE_SIZE + (i % GRID_SIZE) * GAP_SIZE;
+        CGFloat y = (i / GRID_SIZE) * TILE_SIZE + (i / GRID_SIZE) * GAP_SIZE;
+        [newTileView setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
+        [newTileView setUserInteractionEnabled:YES];
+
+        UILabel *newTileLabel = [[UILabel alloc] init];
+        [newTileLabel setText:[NSString stringWithFormat:@"%d", i]];
+        [newTileLabel setTextColor:[UIColor redColor]];
+        [newTileLabel setOpaque:YES];
+        [newTileView addSubview:newTileLabel];
+        
+        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
+        [panGesture setMaximumNumberOfTouches:2];
+        [panGesture setDelegate:self];        
+        [newTileView addGestureRecognizer:panGesture];
+        
+        // Add tile to main view and save in our grid container
+        [[self view] addSubview:newTileView];
+        [[self viewGrid] addObject:newTileView];
+    }
 }
 
 #pragma mark - Tile Manipulation

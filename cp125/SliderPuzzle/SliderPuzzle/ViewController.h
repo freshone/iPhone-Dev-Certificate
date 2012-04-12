@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PuzzleGrid.h"
 
 @interface ViewController : UIViewController <UIGestureRecognizerDelegate>
-@property (nonatomic, strong) NSMutableArray *tileModelGrid;
-@property (nonatomic, strong) NSMutableArray *tileViewGrid;
-- (void)panTile:(UIPanGestureRecognizer *)gestureRecognizer;
+@property (nonatomic, strong) PuzzleGrid *puzzleGrid;
+@property (nonatomic, strong) NSMutableArray *viewGrid;
 @end

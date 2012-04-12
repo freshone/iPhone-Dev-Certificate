@@ -10,6 +10,10 @@
 
 @interface PuzzleGrid : NSObject
 @property (nonatomic, strong) NSMutableArray *puzzlePieces;
+@property (nonatomic, assign) NSUInteger size;
+- (void)generateWithSize:(NSUInteger)columns;
+- (void)shuffle;
 - (BOOL)canMovePieceAtIndex:(NSUInteger)index;
-
+- (BOOL)movePieceFromIndex:(NSUInteger)currentIndex toIndex:(NSUInteger)destinationIndex;
+- (BOOL)isSolved;
 @end
