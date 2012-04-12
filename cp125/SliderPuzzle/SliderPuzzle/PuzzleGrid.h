@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PuzzleGrid : NSObject
+@property (nonatomic, strong) NSMutableArray *puzzlePieces;
+- (BOOL)canMovePieceAtIndex:(NSUInteger)index;
 
 @end

@@ -19,9 +19,9 @@
 @synthesize tileModelGrid = _tileModelGrid;
 @synthesize tileViewGrid = _tileViewGrid;
 
-static const unsigned short GRID_SIZE = 3;
-static const unsigned int TILE_SIZE = 100;
-static const unsigned int GAP_SIZE = 5;
+static const NSUInteger GRID_SIZE = 3;
+static const NSUInteger TILE_SIZE = 100;
+static const NSUInteger GAP_SIZE = 5;
 
 #pragma mark - Load/Unload View
 
@@ -31,14 +31,10 @@ static const unsigned int GAP_SIZE = 5;
 
     UIImage *tileImage = [UIImage imageNamed:@"yellow-tile.png"];
     
-    UIPanGestureRecognizer *mainViewPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
-    [mainViewPanGesture setMaximumNumberOfTouches:2];
-    [mainViewPanGesture setDelegate:self];
-    [[self view] addGestureRecognizer:mainViewPanGesture];
-    
-    for(int i = 0; i < GRID_SIZE * GRID_SIZE; i++)
+    for(int i = 0; i < GRID_SIZE * GRID_SIZE - 1; i++)
     {
         UIImageView *newView = [[UIImageView alloc] initWithImage:tileImage];
+        [newView setUserInteractionEnabled:YES];
         CGFloat x = (i % GRID_SIZE) * TILE_SIZE + (i % GRID_SIZE) * GAP_SIZE;
         CGFloat y = (i / GRID_SIZE) * TILE_SIZE + (i / GRID_SIZE) * GAP_SIZE;
         [newView setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
@@ -47,25 +43,10 @@ static const unsigned int GAP_SIZE = 5;
         [panGesture setMaximumNumberOfTouches:2];
         [panGesture setDelegate:self];        
         [newView addGestureRecognizer:panGesture];
-        [mainViewPanGesture requireGestureRecognizerToFail:panGesture];
         
         // Add tile to main view
         [[self view] addSubview:newView];
     }
-    
-    UIImageView *testView = [[UIImageView alloc] initWithImage:tileImage];
-    [testView setFrame:CGRectMake(300,300,100,100)];
-    
-    UIPanGestureRecognizer *testGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
-    [testGesture setMaximumNumberOfTouches:2];
-    [testGesture setDelegate:self];        
-    [testView addGestureRecognizer:testGesture];
-    [mainViewPanGesture requireGestureRecognizerToFail:testGesture];
-    
-    // Add tile to main view
-    [[self view] addSubview:testView];
-    
-    
 }
 
 - (void)viewDidUnload
