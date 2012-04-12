@@ -17,17 +17,12 @@
     [self setPuzzlePieces:[NSMutableArray arrayWithCapacity:columns]];
     [self setSize:columns];
     
-    srand(clock());
     for(NSUInteger i = 0; i < columns * columns; i++)
     {
         [[self puzzlePieces] addObject:[NSNumber numberWithInteger:i]];
     }
 
-    NSLog(@"%@", [self puzzlePieces]);
-
     [self shuffle];
-    
-    NSLog(@"%@", [self puzzlePieces]);
 }
 
 - (void)shuffle

@@ -58,9 +58,13 @@ static const NSUInteger GAP_SIZE = 5;
         [newTileView setUserInteractionEnabled:YES];
 
         UILabel *newTileLabel = [[UILabel alloc] init];
+        [newTileLabel setFrame:CGRectMake(TILE_SIZE/2-8, TILE_SIZE/2-8, 24, 24)];
         [newTileLabel setText:[NSString stringWithFormat:@"%d", i]];
-        [newTileLabel setTextColor:[UIColor redColor]];
-        [newTileLabel setOpaque:YES];
+        [newTileLabel setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24.0f]];
+        [newTileLabel setTextColor:[UIColor greenColor]];
+        [newTileLabel setBackgroundColor:[UIColor clearColor]];
+        [newTileLabel setShadowColor:[UIColor blackColor]];
+        [newTileLabel setShadowOffset:CGSizeMake(2.0f, 2.0f)];
         [newTileView addSubview:newTileLabel];
         
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
