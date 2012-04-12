@@ -49,32 +49,39 @@ static const NSUInteger GAP_SIZE = 5;
 {
     UIImage *tileImage = [UIImage imageNamed:@"yellow-tile.png"];
     
-    for(NSUInteger i = 0; i < GRID_SIZE * GRID_SIZE - 1; i++)
+    NSUInteger count = 0;
+    for(NSNumber *tile in [[self puzzleGrid] puzzlePieces])
     {
-        UIImageView *newTileView = [[UIImageView alloc] initWithImage:tileImage];
-        CGFloat x = (i % GRID_SIZE) * TILE_SIZE + (i % GRID_SIZE) * GAP_SIZE;
-        CGFloat y = (i / GRID_SIZE) * TILE_SIZE + (i / GRID_SIZE) * GAP_SIZE;
-        [newTileView setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
-        [newTileView setUserInteractionEnabled:YES];
-
-        UILabel *newTileLabel = [[UILabel alloc] init];
-        [newTileLabel setFrame:CGRectMake(TILE_SIZE/2-8, TILE_SIZE/2-8, 24, 24)];
-        [newTileLabel setText:[NSString stringWithFormat:@"%d", i]];
-        [newTileLabel setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24.0f]];
-        [newTileLabel setTextColor:[UIColor greenColor]];
-        [newTileLabel setBackgroundColor:[UIColor clearColor]];
-        [newTileLabel setShadowColor:[UIColor blackColor]];
-        [newTileLabel setShadowOffset:CGSizeMake(2.0f, 2.0f)];
-        [newTileView addSubview:newTileLabel];
+        // The zero tile is our space
+        if([tile unsignedIntegerValue] != 0)
+        {
+            UIImageView *newTileView = [[UIImageView alloc] initWithImage:tileImage];
+            CGFloat x = (count % GRID_SIZE) * TILE_SIZE + (count % GRID_SIZE) * GAP_SIZE;
+            CGFloat y = (count / GRID_SIZE) * TILE_SIZE + (count / GRID_SIZE) * GAP_SIZE;
+            [newTileView setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
+            [newTileView setUserInteractionEnabled:YES];
+            
+            UILabel *newTileLabel = [[UILabel alloc] init];
+            [newTileLabel setFrame:CGRectMake(TILE_SIZE/2-12, TILE_SIZE/2-12, 24, 24)];
+            [newTileLabel setText:[tile stringValue]];
+            [newTileLabel setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24.0f]];
+            [newTileLabel setTextColor:[UIColor greenColor]];
+            [newTileLabel setBackgroundColor:[UIColor clearColor]];
+            [newTileLabel setShadowColor:[UIColor blackColor]];
+            [newTileLabel setShadowOffset:CGSizeMake(2.0f, 2.0f)];
+            [newTileView addSubview:newTileLabel];
+            
+            UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
+            [panGesture setMaximumNumberOfTouches:2];
+            [panGesture setDelegate:self];
+            [newTileView addGestureRecognizer:panGesture];
+            
+            // Add tile to main view and save in our grid container
+            [[self view] addSubview:newTileView];
+            [[self viewGrid] addObject:newTileView];
+        }
         
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
-        [panGesture setMaximumNumberOfTouches:2];
-        [panGesture setDelegate:self];        
-        [newTileView addGestureRecognizer:panGesture];
-        
-        // Add tile to main view and save in our grid container
-        [[self view] addSubview:newTileView];
-        [[self viewGrid] addObject:newTileView];
+        count++;
     }
 }
 
