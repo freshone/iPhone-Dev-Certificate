@@ -8,12 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    Locked,
+    Up,
+    Down,
+    Left,
+    Right
+} PieceMoveDirection;
+
 @interface PuzzleGrid : NSObject
 @property (nonatomic, strong) NSMutableArray *puzzlePieces;
-@property (nonatomic, assign) NSUInteger size;
+@property (nonatomic, assign) NSUInteger numberOfColumns;
 - (void)generateWithSize:(NSUInteger)columns;
 - (void)shuffle;
-- (BOOL)canMovePieceAtIndex:(NSUInteger)index;
-- (BOOL)movePieceFromIndex:(NSUInteger)currentIndex toIndex:(NSUInteger)destinationIndex;
+- (PieceMoveDirection)canSlidePieceAtIndex:(NSUInteger)index;
+- (BOOL)slidePieceAtIndex:(NSUInteger)currentIndex;
 - (BOOL)isSolved;
+- (NSUInteger)indexOfBlankTile;
+- (NSUInteger)indexOfTileNumber:(NSUInteger)tileNumber;
+- (NSUInteger)tileNumberAtIndex:(NSUInteger)index;
 @end

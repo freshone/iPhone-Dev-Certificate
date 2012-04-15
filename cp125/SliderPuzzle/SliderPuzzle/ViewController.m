@@ -11,18 +11,27 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) PuzzleGrid *puzzleGrid;
+@property (nonatomic, strong) NSMutableArray *viewGrid;
+@property (nonatomic, strong) UIImage *tileImage;
 - (void)generateGridViews;
-- (void)panTile:(UIPanGestureRecognizer *)gestureRecognizer;
+- (void)decorateView:(UIImageView*)view forIndex:(NSUInteger)index;
+- (void)setFrameForView:(UIView*)view forIndex:(NSUInteger)index;
+- (void)addGesturesToView:(UIView*)view;
+- (void)panTile:(UIPanGestureRecognizer*)gestureRecognizer;
 @end
 
 @implementation ViewController
-
 @synthesize puzzleGrid = _puzzleGrid;
-@synthesize viewGrid = _tileViewGrid;
+@synthesize viewGrid = _viewGrid;
+@synthesize tileImage = _tileImage;
 
 static const NSUInteger GRID_SIZE = 3;
 static const NSUInteger TILE_SIZE = 100;
 static const NSUInteger GAP_SIZE = 5;
+static const NSUInteger TAPS_TO_MOVE = 1;
+static NSString* const TILE_IMAGE_FILENAME = @"yellow-tile.png";
+static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
 
 #pragma mark - Load/Unload View
 
@@ -31,6 +40,8 @@ static const NSUInteger GAP_SIZE = 5;
     [super viewDidLoad];
     [self setPuzzleGrid:[[PuzzleGrid alloc] init]];
     [[self puzzleGrid] generateWithSize:GRID_SIZE];
+    //[[self puzzleGrid] shuffle];
+    [self setTileImage:[UIImage imageNamed:@"yellow-tile.png"]];
     [self generateGridViews];
 }
 
@@ -47,48 +58,73 @@ static const NSUInteger GAP_SIZE = 5;
 
 - (void)generateGridViews
 {
-    UIImage *tileImage = [UIImage imageNamed:@"yellow-tile.png"];
-    
-    NSUInteger count = 0;
-    for(NSNumber *tile in [[self puzzleGrid] puzzlePieces])
+    if([self viewGrid] == nil)
     {
-        // The zero tile is our space
-        if([tile unsignedIntegerValue] != 0)
-        {
-            UIImageView *newTileView = [[UIImageView alloc] initWithImage:tileImage];
-            CGFloat x = (count % GRID_SIZE) * TILE_SIZE + (count % GRID_SIZE) * GAP_SIZE;
-            CGFloat y = (count / GRID_SIZE) * TILE_SIZE + (count / GRID_SIZE) * GAP_SIZE;
-            [newTileView setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
-            [newTileView setUserInteractionEnabled:YES];
-            
-            UILabel *newTileLabel = [[UILabel alloc] init];
-            [newTileLabel setFrame:CGRectMake(TILE_SIZE/2-12, TILE_SIZE/2-12, 24, 24)];
-            [newTileLabel setText:[tile stringValue]];
-            [newTileLabel setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24.0f]];
-            [newTileLabel setTextColor:[UIColor greenColor]];
-            [newTileLabel setBackgroundColor:[UIColor clearColor]];
-            [newTileLabel setShadowColor:[UIColor blackColor]];
-            [newTileLabel setShadowOffset:CGSizeMake(2.0f, 2.0f)];
-            [newTileView addSubview:newTileLabel];
-            
-            UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
-            [panGesture setMaximumNumberOfTouches:2];
-            [panGesture setDelegate:self];
-            [newTileView addGestureRecognizer:panGesture];
-            
-            // Add tile to main view and save in our grid container
-            [[self view] addSubview:newTileView];
-            [[self viewGrid] addObject:newTileView];
-        }
-        
-        count++;
+        [self setViewGrid:[NSMutableArray arrayWithCapacity:GRID_SIZE]];
     }
+    for(int i = 0; i < GRID_SIZE * GRID_SIZE; i++)
+    {
+        UIImageView *view = [[UIImageView alloc] init];
+        [self decorateView:view forIndex:i];
+        [self addGesturesToView:view];
+        [[self view] addSubview:view];
+        [[self viewGrid] addObject:view];
+    }
+}
+
+- (void)decorateView:(UIImageView*)view forIndex:(NSUInteger)index
+{
+    NSUInteger tileNumber = [[self puzzleGrid] tileNumberAtIndex:index];
+    
+    // The zero tile is our space
+    if(tileNumber == 0)
+    {
+        view = [view initWithImage:nil];
+        [self setFrameForView:view forIndex:index];
+    }
+    else
+    {
+        view = [view initWithImage:[self tileImage]];
+        [self setFrameForView:view forIndex:index];
+        [view setUserInteractionEnabled:YES];
+        
+        UILabel *newTileLabel = [[UILabel alloc] init];
+        [view addSubview:newTileLabel];
+        [newTileLabel setFrame:CGRectMake(TILE_SIZE/2-12, TILE_SIZE/2-12, 24, 24)];
+        [newTileLabel setText:[NSString stringWithFormat:@"%d", tileNumber]];
+        [newTileLabel setFont:[UIFont fontWithName:LABEL_FONTNAME size:24.0f]];
+        [newTileLabel setTextColor:[UIColor greenColor]];
+        [newTileLabel setBackgroundColor:[UIColor clearColor]];
+        [newTileLabel setShadowColor:[UIColor blackColor]];
+        [newTileLabel setShadowOffset:CGSizeMake(2.0f, 2.0f)];
+    }
+}
+
+- (void)setFrameForView:(UIView*)view forIndex:(NSUInteger)index
+{
+    CGFloat x = (index % GRID_SIZE) * TILE_SIZE + (index % GRID_SIZE) * GAP_SIZE;
+    CGFloat y = (index / GRID_SIZE) * TILE_SIZE + (index / GRID_SIZE) * GAP_SIZE;
+    [view setFrame:CGRectMake(x, y, TILE_SIZE, TILE_SIZE)];
+}
+
+- (void)addGesturesToView:(UIView *)view
+{
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
+    [panGesture setMaximumNumberOfTouches:2];
+    [panGesture setDelegate:self];
+    [view addGestureRecognizer:panGesture];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTile:)];
+    [tapGesture setNumberOfTapsRequired:TAPS_TO_MOVE];
+    [tapGesture setDelegate:self];
+    [view addGestureRecognizer:tapGesture];
 }
 
 #pragma mark - Tile Manipulation
 
 - (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
-    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
+    {
         UIView *tile = gestureRecognizer.view;
 
         CGPoint locationInView = [gestureRecognizer locationInView:tile];
@@ -101,17 +137,62 @@ static const NSUInteger GAP_SIZE = 5;
 
 - (void)panTile:(UIPanGestureRecognizer *)gestureRecognizer
 {
-    UIView *tile = [gestureRecognizer view];
-    
+    static CGPoint originalCenter;
+    UIView *tileView = [gestureRecognizer view];
+    NSUInteger tileIndex = [[self viewGrid] indexOfObject:tileView];
+    PieceMoveDirection direction = [[self puzzleGrid] canSlidePieceAtIndex:tileIndex];    
+
     [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
 
-    if (([gestureRecognizer state] == UIGestureRecognizerStateBegan ||
-        [gestureRecognizer state] == UIGestureRecognizerStateChanged) )
+    if (direction != Locked &&
+        ([gestureRecognizer state] == UIGestureRecognizerStateBegan ||
+        [gestureRecognizer state] == UIGestureRecognizerStateChanged))
     {
-        CGPoint translation = [gestureRecognizer translationInView:[tile superview]];        
-        [tile setCenter:CGPointMake([tile center].x + translation.x, [tile center].y + translation.y)];
-        [gestureRecognizer setTranslation:CGPointZero inView:[tile superview]];
+        if([gestureRecognizer state] == UIGestureRecognizerStateBegan)
+        {
+            originalCenter = [tileView center];
+        }
+        
+        CGPoint translation = [gestureRecognizer translationInView:[tileView superview]];
+        CGFloat x = originalCenter.x;
+        CGFloat y = originalCenter.y;
+        
+        if((direction == Up && translation.y < originalCenter.y) || (direction == Down && translation.y > originalCenter.y + TILE_SIZE))
+        {
+            y += translation.y;
+            [tileView setCenter:CGPointMake(x, y)];
+        }
+        if((direction == Left && translation.x < originalCenter.x) || (direction == Right && translation.x > originalCenter.x + TILE_SIZE))
+        {
+            x += translation.x;
+            [tileView setCenter:CGPointMake(x, y)];
+        }
     }
 }
 
+- (void)tapTile:(UITapGestureRecognizer *)gestureRecognizer
+{
+    UIView *tileView = [gestureRecognizer view];
+    NSUInteger oldIndex = [[self viewGrid] indexOfObject:tileView];
+    NSUInteger newIndex = [[self puzzleGrid] indexOfBlankTile];
+    UIView *blankView = [[self viewGrid] objectAtIndex:newIndex];
+    
+    if([[self puzzleGrid] slidePieceAtIndex:oldIndex])
+    {
+        [[self viewGrid] exchangeObjectAtIndex:oldIndex withObjectAtIndex:newIndex];
+        [self setFrameForView:tileView forIndex:newIndex];
+        [self setFrameForView:blankView forIndex:oldIndex];
+    }
+}
+
+- (IBAction)shuffleButtonPushed:(id)sender
+{
+    for(UIImageView *tileView in [self viewGrid])
+    {
+        [tileView removeFromSuperview];
+    }
+    [self setViewGrid:nil];
+    [[self puzzleGrid] shuffle];
+    [self generateGridViews];
+}
 @end

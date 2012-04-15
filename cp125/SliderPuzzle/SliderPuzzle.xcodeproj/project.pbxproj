@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3FAEEF331536BEDB001E5526 /* PuzzleGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEEF321536BEDB001E5526 /* PuzzleGrid.m */; };
+		3FB4D7AE153AAF9B0025EDAA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB4D7AD153AAF9B0025EDAA /* SenTestingKit.framework */; };
+		3FB4D7AF153AAF9B0025EDAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C11532D67500CFB828 /* UIKit.framework */; };
+		3FB4D7B0153AAF9B0025EDAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C31532D67500CFB828 /* Foundation.framework */; };
+		3FB4D7B6153AAF9C0025EDAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FB4D7B4153AAF9C0025EDAA /* InfoPlist.strings */; };
+		3FB4D7C3153AB2EA0025EDAA /* PuzzleGridTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4D7C2153AB2EA0025EDAA /* PuzzleGridTests.m */; };
 		3FD150C21532D67500CFB828 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C11532D67500CFB828 /* UIKit.framework */; };
 		3FD150C41532D67500CFB828 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C31532D67500CFB828 /* Foundation.framework */; };
 		3FD150C61532D67500CFB828 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD150C51532D67500CFB828 /* CoreGraphics.framework */; };
@@ -19,9 +24,26 @@
 		3FD150F91532D77E00CFB828 /* yellow-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD150F81532D77E00CFB828 /* yellow-tile.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3FB4D7BF153AAFC40025EDAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FD150B41532D67500CFB828 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FD150BC1532D67500CFB828;
+			remoteInfo = SliderPuzzle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3FAEEF311536BEDB001E5526 /* PuzzleGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleGrid.h; sourceTree = "<group>"; };
 		3FAEEF321536BEDB001E5526 /* PuzzleGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleGrid.m; sourceTree = "<group>"; };
+		3FB4D7AC153AAF9B0025EDAA /* SliderPuzzleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderPuzzleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB4D7AD153AAF9B0025EDAA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3FB4D7B3153AAF9C0025EDAA /* SliderPuzzleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SliderPuzzleTests-Info.plist"; sourceTree = "<group>"; };
+		3FB4D7B5153AAF9C0025EDAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3FB4D7BA153AAF9C0025EDAA /* SliderPuzzleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SliderPuzzleTests-Prefix.pch"; sourceTree = "<group>"; };
+		3FB4D7C1153AB2EA0025EDAA /* PuzzleGridTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleGridTests.h; sourceTree = "<group>"; };
+		3FB4D7C2153AB2EA0025EDAA /* PuzzleGridTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleGridTests.m; sourceTree = "<group>"; };
 		3FD150BD1532D67500CFB828 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD150C11532D67500CFB828 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3FD150C31532D67500CFB828 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +61,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3FB4D7A8153AAF9B0025EDAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB4D7AE153AAF9B0025EDAA /* SenTestingKit.framework in Frameworks */,
+				3FB4D7AF153AAF9B0025EDAA /* UIKit.framework in Frameworks */,
+				3FB4D7B0153AAF9B0025EDAA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FD150BA1532D67500CFB828 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,10 +105,31 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		3FB4D7B1153AAF9B0025EDAA /* SliderPuzzleTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FB4D7C1153AB2EA0025EDAA /* PuzzleGridTests.h */,
+				3FB4D7C2153AB2EA0025EDAA /* PuzzleGridTests.m */,
+				3FB4D7B2153AAF9C0025EDAA /* Supporting Files */,
+			);
+			path = SliderPuzzleTests;
+			sourceTree = "<group>";
+		};
+		3FB4D7B2153AAF9C0025EDAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FB4D7B3153AAF9C0025EDAA /* SliderPuzzleTests-Info.plist */,
+				3FB4D7B4153AAF9C0025EDAA /* InfoPlist.strings */,
+				3FB4D7BA153AAF9C0025EDAA /* SliderPuzzleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		3FD150B21532D67500CFB828 = {
 			isa = PBXGroup;
 			children = (
 				3FD150C71532D67500CFB828 /* SliderPuzzle */,
+				3FB4D7B1153AAF9B0025EDAA /* SliderPuzzleTests */,
 				3FD150C01532D67500CFB828 /* Frameworks */,
 				3FD150BE1532D67500CFB828 /* Products */,
 			);
@@ -86,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				3FD150BD1532D67500CFB828 /* SliderPuzzle.app */,
+				3FB4D7AC153AAF9B0025EDAA /* SliderPuzzleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +150,7 @@
 				3FD150C11532D67500CFB828 /* UIKit.framework */,
 				3FD150C31532D67500CFB828 /* Foundation.framework */,
 				3FD150C51532D67500CFB828 /* CoreGraphics.framework */,
+				3FB4D7AD153AAF9B0025EDAA /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +188,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3FB4D7AB153AAF9B0025EDAA /* SliderPuzzleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FB4D7BD153AAF9C0025EDAA /* Build configuration list for PBXNativeTarget "SliderPuzzleTests" */;
+			buildPhases = (
+				3FB4D7A7153AAF9B0025EDAA /* Sources */,
+				3FB4D7A8153AAF9B0025EDAA /* Frameworks */,
+				3FB4D7A9153AAF9B0025EDAA /* Resources */,
+				3FB4D7AA153AAF9B0025EDAA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FB4D7C0153AAFC40025EDAA /* PBXTargetDependency */,
+			);
+			name = SliderPuzzleTests;
+			productName = SliderPuzzleTests;
+			productReference = 3FB4D7AC153AAF9B0025EDAA /* SliderPuzzleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		3FD150BC1532D67500CFB828 /* SliderPuzzle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FD150DB1532D67500CFB828 /* Build configuration list for PBXNativeTarget "SliderPuzzle" */;
@@ -171,11 +245,20 @@
 			projectRoot = "";
 			targets = (
 				3FD150BC1532D67500CFB828 /* SliderPuzzle */,
+				3FB4D7AB153AAF9B0025EDAA /* SliderPuzzleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3FB4D7A9153AAF9B0025EDAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB4D7B6153AAF9C0025EDAA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FD150BB1532D67500CFB828 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,7 +271,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3FB4D7AA153AAF9B0025EDAA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3FB4D7A7153AAF9B0025EDAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB4D7C3153AB2EA0025EDAA /* PuzzleGridTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FD150B91532D67500CFB828 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,7 +309,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3FB4D7C0153AAFC40025EDAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FD150BC1532D67500CFB828 /* SliderPuzzle */;
+			targetProxy = 3FB4D7BF153AAFC40025EDAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		3FB4D7B4153AAF9C0025EDAA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FB4D7B5153AAF9C0025EDAA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		3FD150CA1532D67500CFB828 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -222,6 +345,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3FB4D7BB153AAF9C0025EDAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SliderPuzzle.app/SliderPuzzle";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SliderPuzzleTests/SliderPuzzleTests-Prefix.pch";
+				INFOPLIST_FILE = "SliderPuzzleTests/SliderPuzzleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VERSION_INFO_BUILDER = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3FB4D7BC153AAF9C0025EDAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SliderPuzzle.app/SliderPuzzle";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SliderPuzzleTests/SliderPuzzleTests-Prefix.pch";
+				INFOPLIST_FILE = "SliderPuzzleTests/SliderPuzzleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VERSION_INFO_BUILDER = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		3FD150D91532D67500CFB828 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,6 +433,7 @@
 				GCC_PREFIX_HEADER = "SliderPuzzle/SliderPuzzle-Prefix.pch";
 				INFOPLIST_FILE = "SliderPuzzle/SliderPuzzle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -285,6 +445,7 @@
 				GCC_PREFIX_HEADER = "SliderPuzzle/SliderPuzzle-Prefix.pch";
 				INFOPLIST_FILE = "SliderPuzzle/SliderPuzzle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -292,6 +453,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3FB4D7BD153AAF9C0025EDAA /* Build configuration list for PBXNativeTarget "SliderPuzzleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FB4D7BB153AAF9C0025EDAA /* Debug */,
+				3FB4D7BC153AAF9C0025EDAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3FD150B71532D67500CFB828 /* Build configuration list for PBXProject "SliderPuzzle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

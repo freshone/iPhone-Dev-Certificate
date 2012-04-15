@@ -10,6 +10,5 @@
 #import "PuzzleGrid.h"
 
 @interface ViewController : UIViewController <UIGestureRecognizerDelegate>
-@property (nonatomic, strong) PuzzleGrid *puzzleGrid;
-@property (nonatomic, strong) NSMutableArray *viewGrid;
+- (IBAction)shuffleButtonPushed:(id)sender;
 @end
