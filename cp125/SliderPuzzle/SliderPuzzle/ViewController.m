@@ -147,12 +147,25 @@ static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panTile:)];
     [panGesture setMaximumNumberOfTouches:2];
     [panGesture setDelegate:self];
-    [view addGestureRecognizer:panGesture];
+    //[view addGestureRecognizer:panGesture];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTile:)];
     [tapGesture setNumberOfTapsRequired:TAPS_TO_MOVE];
     [tapGesture setDelegate:self];
     [view addGestureRecognizer:tapGesture];
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self shuffleButtonPushed:nil];
+    }
 }
 
 #pragma mark - Tile Manipulation
@@ -250,7 +263,7 @@ static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
         UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight;
     UIViewAnimationOptions animationStyle = (tileNumber == 0) ? 
         UIViewAnimationOptionTransitionCrossDissolve : flipStyle;
-    NSTimeInterval time = (tileNumber == 0) ? 1.0 : 0.25;
+    NSTimeInterval time = (tileNumber == 0) ? 0.75 : 0.25;
     
     UIImageView *flipView = [[self viewGrid] objectAtIndex:start];
     [self decorateView:flipView forIndex:start];
