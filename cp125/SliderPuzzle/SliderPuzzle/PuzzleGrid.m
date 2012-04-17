@@ -31,7 +31,7 @@
         srand(clock());
         [[self puzzlePieces] sortUsingComparator:^(id a, id b)
          {
-             return ((rand() % 3) - 1);
+             return ((rand() % 2) == 0) ? 1 : -1;
          }];
     // Do it again if we happen to randomly generate a solved puzzle
     } while([self isSolved]);

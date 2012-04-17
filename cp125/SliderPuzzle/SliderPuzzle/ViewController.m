@@ -14,11 +14,15 @@
 @property (nonatomic, strong) PuzzleGrid *puzzleGrid;
 @property (nonatomic, strong) NSMutableArray *viewGrid;
 @property (nonatomic, strong) UIImage *tileImage;
-- (void)generateGridViews;
+- (void)createSubviews;
+- (void)updateSubviews;
+- (void)addSubviewsToSuperview;
+- (void)removeSubviewsFromSuperview;
 - (void)decorateView:(UIImageView*)view forIndex:(NSUInteger)index;
 - (void)setFrameForView:(UIView*)view forIndex:(NSUInteger)index;
 - (void)addGesturesToView:(UIView*)view;
 - (void)panTile:(UIPanGestureRecognizer*)gestureRecognizer;
+- (void)recursiveFlipTilesFromIndex:(NSUInteger)start toIndex:(NSUInteger)end;
 @end
 
 @implementation ViewController
@@ -40,9 +44,14 @@ static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
     [super viewDidLoad];
     [self setPuzzleGrid:[[PuzzleGrid alloc] init]];
     [[self puzzleGrid] generateWithSize:GRID_SIZE];
-    //[[self puzzleGrid] shuffle];
+    [[self puzzleGrid] shuffle];
     [self setTileImage:[UIImage imageNamed:@"yellow-tile.png"]];
-    [self generateGridViews];
+    [self createSubviews];
+    [UIView animateWithDuration:0.25 animations:^
+     {
+         [self updateSubviews];
+     }];
+    [self addSubviewsToSuperview];
 }
 
 - (void)viewDidUnload
@@ -56,36 +65,62 @@ static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)generateGridViews
+- (void)createSubviews
 {
-    if([self viewGrid] == nil)
-    {
-        [self setViewGrid:[NSMutableArray arrayWithCapacity:GRID_SIZE]];
-    }
+    [self setViewGrid:[NSMutableArray arrayWithCapacity:GRID_SIZE]];
+    
     for(int i = 0; i < GRID_SIZE * GRID_SIZE; i++)
     {
-        UIImageView *view = [[UIImageView alloc] init];
-        [self decorateView:view forIndex:i];
-        [self addGesturesToView:view];
-        [[self view] addSubview:view];
-        [[self viewGrid] addObject:view];
+        UIImageView *newView = [[UIImageView alloc] init];
+        [self addGesturesToView:newView];
+        [self setFrameForView:newView forIndex:GRID_SIZE * GRID_SIZE / 2];
+        [[self viewGrid] addObject:newView];
     }
+}
+
+- (void)updateSubviews
+{
+    [[self viewGrid] enumerateObjectsUsingBlock:^(UIImageView *tileView, NSUInteger index, BOOL *stop)
+     {
+         [self decorateView:tileView forIndex:index];
+     }];
+}
+
+- (void)addSubviewsToSuperview
+{
+    [[self viewGrid] enumerateObjectsUsingBlock:^(UIImageView *tileView, NSUInteger index, BOOL *stop)
+     {
+          [[self view] addSubview:tileView];
+     }];
+}
+
+- (void)removeSubviewsFromSuperview
+{
+    [[self viewGrid] enumerateObjectsUsingBlock:^(UIImageView *tileView, NSUInteger index, BOOL *stop)
+     {
+         [tileView removeFromSuperview];
+     }];
 }
 
 - (void)decorateView:(UIImageView*)view forIndex:(NSUInteger)index
 {
     NSUInteger tileNumber = [[self puzzleGrid] tileNumberAtIndex:index];
+    [self setFrameForView:view forIndex:index];
+    
+    // Delete any labels from the view to clean it
+    for(UIView* subview in [view subviews])
+    {
+        [subview removeFromSuperview];
+    }
     
     // The zero tile is our space
     if(tileNumber == 0)
     {
-        view = [view initWithImage:nil];
-        [self setFrameForView:view forIndex:index];
+        [view setImage:nil];
     }
     else
     {
-        view = [view initWithImage:[self tileImage]];
-        [self setFrameForView:view forIndex:index];
+        [view setImage:[self tileImage]];
         [view setUserInteractionEnabled:YES];
         
         UILabel *newTileLabel = [[UILabel alloc] init];
@@ -122,7 +157,8 @@ static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
 
 #pragma mark - Tile Manipulation
 
-- (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
+- (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+{
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
     {
         UIView *tile = gestureRecognizer.view;
@@ -180,19 +216,52 @@ static NSString* const LABEL_FONTNAME = @"DBLCDTempBlack";
     if([[self puzzleGrid] slidePieceAtIndex:oldIndex])
     {
         [[self viewGrid] exchangeObjectAtIndex:oldIndex withObjectAtIndex:newIndex];
-        [self setFrameForView:tileView forIndex:newIndex];
-        [self setFrameForView:blankView forIndex:oldIndex];
+        [UIView animateWithDuration:0.25 animations:^
+         {
+             [self setFrameForView:tileView forIndex:newIndex];
+             [self setFrameForView:blankView forIndex:oldIndex];
+         }];
     }
 }
 
 - (IBAction)shuffleButtonPushed:(id)sender
 {
-    for(UIImageView *tileView in [self viewGrid])
-    {
-        [tileView removeFromSuperview];
-    }
-    [self setViewGrid:nil];
     [[self puzzleGrid] shuffle];
-    [self generateGridViews];
+    [self recursiveFlipTilesFromIndex:0 toIndex:[[self viewGrid] count] - 1];
 }
+
+- (void)recursiveFlipTilesFromIndex:(NSUInteger)start toIndex:(NSUInteger)end
+{
+    // Die if out of bounds
+    if(!(start < [[self viewGrid] count]) || (start > end))
+    {
+        return;
+    }
+    
+    NSUInteger tileNumber = [[self puzzleGrid] tileNumberAtIndex:start];
+    
+    // If this is the blank, skip ahead and come back
+    if(tileNumber == 0)
+    {
+        [self recursiveFlipTilesFromIndex:start + 1 toIndex:end];
+    }
+    
+    UIViewAnimationOptions flipStyle = (tileNumber % 2 == 0) ?
+        UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight;
+    UIViewAnimationOptions animationStyle = (tileNumber == 0) ? 
+        UIViewAnimationOptionTransitionCrossDissolve : flipStyle;
+    NSTimeInterval time = (tileNumber == 0) ? 1.0 : 0.25;
+    
+    UIImageView *flipView = [[self viewGrid] objectAtIndex:start];
+    [self decorateView:flipView forIndex:start];
+    [UIView transitionWithView:flipView duration:time options:animationStyle animations:^{}
+                    completion:^(BOOL finished)
+     {
+         if((start + 1 < [[self viewGrid] count]) && (start <= end) && (tileNumber != 0))
+         {
+             [self recursiveFlipTilesFromIndex:start + 1 toIndex:end];
+         }
+     }];
+}
+
 @end
