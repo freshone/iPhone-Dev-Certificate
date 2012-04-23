@@ -1,0 +1,17 @@
+Current language:  auto; currently objective-c
+(gdb) po newView
+<UIImageView: 0x68516c0; frame = (0 0; 0 0); userInteractionEnabled = NO; layer = <CALayer: 0x6867790>>
+(gdb) p i
+$1 = 0
+(gdb) call (void)[[self viewGrid] addObject:@"debug string"]
+(gdb) 
+
+
+(lldb) po newView
+(UIImageView *) $1 = 0x068358c0 <UIImageView: 0x68358c0; frame = (0 0; 0 0); userInteractionEnabled = NO; layer = <CALayer: 0x6844760>>
+(lldb) p i
+(int) $2 = 0
+(lldb) expr (void)[[self viewGrid] addObject:@"debug string"]
+<no result>
+
+
