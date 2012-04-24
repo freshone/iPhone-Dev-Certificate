@@ -12,8 +12,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *inputTextField;
-@property (weak) IBOutlet NSTextView *outputTextField;
 @property (strong) NSTask *lsTask;
+@property (unsafe_unretained) IBOutlet NSTextView *outputTextView;
 
 - (IBAction)runButtonPushed:(id)sender;
 
