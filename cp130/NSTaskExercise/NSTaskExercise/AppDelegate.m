@@ -17,7 +17,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // yay
+    //[[self outputTextView] setFont:[NSFont fontWithName:@"Courier" size:12.0f]];
+    //[[self outputTextView] setString:@""];
+    //[[self outputTextView] setFont:[NSFont fontWithName:@"Courier" size:12.0f]];
 }
 
 - (IBAction)runButtonPushed:(id)sender
@@ -32,7 +34,9 @@
     NSData *outputData = [[outputPipe fileHandleForReading] readDataToEndOfFile];
     NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
     NSLog(@"%@", outputString);
+
     [[[self outputTextView] textStorage] appendAttributedString:[[NSAttributedString alloc] initWithString:outputString]];
+    [[self outputTextView] setFont:[NSFont fontWithName:@"Courier" size:12.0f]];
 }
 
 @end
