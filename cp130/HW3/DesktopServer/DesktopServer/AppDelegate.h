@@ -11,5 +11,6 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (unsafe_unretained) IBOutlet NSTextView *logTextView;
 
 @end
