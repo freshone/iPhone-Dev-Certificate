@@ -15,12 +15,13 @@
 @synthesize window = _window;
 @synthesize logTextView = _logTextView;
 @synthesize connectionFileHandle = _connectionFileHandle;
+@synthesize netService = _netService;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSString* const	kServiceTypeString = @"_jdmlistener._tcp.";
-    NSString* const kServiceNameString = @"HW3 listen service";
-    const int kListenPort = 8082;
+    NSString* const kServiceNameString = @"HW3";
+    const int kListenPort = 9227;
     const bool reuse = YES;
     
     [self appendStringToLog:@"Initializing..."];
@@ -60,27 +61,29 @@
 	if (CFSocketSetAddress(socket_, addressData) != kCFSocketSuccess)
 	{
 		[self appendStringToLog:@"Unable to bind socket to address"];
-		return;
 	}
+    else
+    {
+        [self setConnectionFileHandle:[[NSFileHandle alloc] initWithFileDescriptor:fileDescriptor closeOnDealloc:YES]];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(handleIncomingConnection:) 
+         name:NSFileHandleConnectionAcceptedNotification
+         object:nil];
+        
+        [[self connectionFileHandle] acceptConnectionInBackgroundAndNotify];
+        
+        [self setNetService:[[NSNetService alloc] initWithDomain:@"" 
+                                                                   type:kServiceTypeString
+                                                                   name:kServiceNameString 
+                                                                   port:kListenPort]];
+        [[self netService] setDelegate:self];
+        [[self netService] publish];
+    }
     
-    [self setConnectionFileHandle:[[NSFileHandle alloc] initWithFileDescriptor:fileDescriptor closeOnDealloc:YES]];
-	
-	[[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(handleIncomingConnection:) 
-     name:NSFileHandleConnectionAcceptedNotification
-     object:nil];
-    
-    [[self connectionFileHandle] acceptConnectionInBackgroundAndNotify];
-	
-    NSNetService* netService = [[NSNetService alloc] initWithDomain:@"" 
-        type:kServiceTypeString
-        name:kServiceNameString 
-        port:kListenPort];
-    
-	// publish on the default domains
-    [netService setDelegate:self];
-    [netService publish];
+    CFRelease(socket_);
+    CFRelease(addressData);
 }
 
 - (void)handleIncomingConnection:(NSNotification*)notification
@@ -128,6 +131,11 @@
     }
 }
 
+- (void)netServiceWillPublish:(NSNetService *)sender
+{
+    [self appendStringToLog:@"publish imminent"];
+}
+
 - (void)netServiceDidPublish:(NSNetService *)sender
 {
     [self appendStringToLog:@"publish successful"];
@@ -135,7 +143,29 @@
 
 - (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict
 {
+    [self appendStringToLog:@"publish failed"];
     [self appendStringToLog:[errorDict valueForKey:NSNetServicesErrorCode]];
+}
+
+- (void)netServiceWillResolve:(NSNetService *)sender
+{
+    [self appendStringToLog:@"service will resolve"];
+}
+
+- (void)netServiceDidResolveAddress:(NSNetService *)sender
+{
+    [self appendStringToLog:@"service resolved"];
+}
+
+- (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
+{
+    [self appendStringToLog:@"service did not resolve"];
+    [self appendStringToLog:[errorDict valueForKey:NSNetServicesErrorCode]];
+}
+
+- (void)netServiceDidStop:(NSNetService *)sender
+{
+    [self appendStringToLog:@"service stopped"];   
 }
 
 - (void)appendStringToLog:(NSString *)aString
