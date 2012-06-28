@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPhoneClientAppDelegate : NSObject 
+@interface iPhoneClientAppDelegate : NSObject <UIApplicationDelegate>
 
 @end
 

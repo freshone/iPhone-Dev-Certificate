@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/NSNetServices.h>
 
-
-@interface RootViewController : UITableViewController
+@interface RootViewController : UITableViewController <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
 @end

@@ -170,6 +170,10 @@
 
 - (void)appendStringToLog:(NSString *)aString
 {
+    if([[[self logTextView] textStorage] length] > 0)
+    {
+        [[[self logTextView] textStorage] appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+    }
     [[[self logTextView] textStorage] appendAttributedString:[[NSAttributedString alloc] initWithString:aString]];
     [[self logTextView] setFont:[NSFont fontWithName:@"Courier" size:12.0f]];
 }

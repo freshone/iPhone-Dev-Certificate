@@ -12,16 +12,12 @@
 #import <netinet/in.h>
 #include <netdb.h>
 
-NSString* const			kServiceTypeString		= @"_uwcelistener._tcp.";
+NSString* const			kServiceTypeString		= @"_jdmlistener._tcp.";
 NSString* const			kSearchDomain			= @"";
-// Bonjour automatically puts everything in the .local domain,
-// ie your mac is something like MyMacSharingName.local
-// using an empty search domain will result in all the default domains
-// including .local and Back to My Mac
 
-@interface RootViewController()<NSNetServiceBrowserDelegate, NSNetServiceDelegate>
+@interface RootViewController()
 
-@property (nonatomic, retain) NSNetServiceBrowser*	browser;
+@property (nonatomic, retain) NSNetServiceBrowser* browser;
 @property (nonatomic, retain) NSMutableArray* services;	
 
 @end
@@ -36,11 +32,9 @@ NSString* const			kSearchDomain			= @"";
     [super didReceiveMemoryWarning];
 }
 
-
 - (void)dealloc
 {
-    self.services = nil;
-
+    [self setServices:nil];
     [super dealloc];
 }
 
@@ -52,12 +46,13 @@ NSString* const			kSearchDomain			= @"";
 
 #pragma mark -  NSNetService
 
-// < YOU NEED TO MAKE ALL THESE METHODS DO THE RIGHT THING >
-
-- (void) startServiceSearch
+- (void)startServiceSearch
 {
-	
-	NSLog(@"Started browsing for services: %@", browser_);	
+    [self setServices:[[NSMutableArray alloc] init]];
+	[self setBrowser:[[NSNetServiceBrowser alloc] init]];
+    [[self browser] setDelegate:self];
+    [[self browser] searchForServicesOfType:kServiceTypeString inDomain:kSearchDomain];
+	NSLog(@"Started browsing for services: %@", [[self browser] description]);
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser 
@@ -65,7 +60,15 @@ NSString* const			kSearchDomain			= @"";
                moreComing:(BOOL)moreComing 
 {
     NSLog(@"Adding new service");
+    [[self services] addObject:aNetService];
     
+	[aNetService setDelegate:self];
+    [aNetService resolveWithTimeout:5.0];
+	
+    if (!moreComing)
+	{
+        [self.tableView reloadData];        
+    }
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser 
@@ -73,7 +76,7 @@ NSString* const			kSearchDomain			= @"";
                moreComing:(BOOL)moreComing 
 {
     NSLog(@"Removing service");
-	
+	[[self services] removeObject:aNetService];
 }
 
 - (void)netServiceWillResolve:(NSNetService *)sender
@@ -81,36 +84,32 @@ NSString* const			kSearchDomain			= @"";
 	NSLog(@"RESOLVING net service with name %@ and type %@", [sender name], [sender type]);
 }
 
-
 - (void)netServiceDidResolveAddress:(NSNetService *)sender
 {
 	NSLog(@"RESOLVED net service with name %@ and type %@", [sender name], [sender type]);
+    [[self tableView] reloadData];
 }
 
 - (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
 {
 	NSLog(@"DID NOT RESOLVE net service with name %@ and type %@", [sender name], [sender type]);
 	NSLog(@"Error Dict: %@", [errorDict description]);
-	
 }
 
 #pragma mark -
 #pragma mark View lifecycle
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	// <ADD SOME CODE HERE : Create the service browser and start looking for services>
-
+	[self startServiceSearch];
 }
 
 - (void)viewDidUnload
 {
-	self.services = nil;
+	[self setServices:nil];
+    [self setBrowser:nil];
 }
-
 
 #pragma mark - UITableViewDataSource
 
@@ -119,12 +118,10 @@ NSString* const			kSearchDomain			= @"";
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.services count];
+    return [[self services] count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -141,15 +138,14 @@ NSString* const			kSearchDomain			= @"";
 	
 	if ([addresses count] == 0)
 	{
-		cell.textLabel.text = @"Could not resolve address";
+		[[cell textLabel] setText:@"Could not resolve address"];
 	}
 	else
 	{
-		cell.textLabel.text = [service hostName];
+		[[cell textLabel] setText:[service hostName]];
 	}
 	
-	
-	for (NSData* addressData in addresses)
+    for(NSData* addressData in addresses)
 	{
 		struct sockaddr_in* address = (struct sockaddr_in*)[addressData bytes];	
 		
@@ -164,11 +160,8 @@ NSString* const			kSearchDomain			= @"";
 		
 		NSLog(@"domain : %@", [service domain]);
 	}
-	
-	
-	cell.detailTextLabel.text = [service name]; 
-	
-	
+    
+	[[cell detailTextLabel] setText:[service name]];
     return cell;
 }
 
@@ -189,13 +182,9 @@ NSString* const			kSearchDomain			= @"";
 	
     ServiceDetailController* detailController = [[ServiceDetailController alloc] initWithNibName:@"ServiceDetailController" bundle:nil];
 	
-	detailController.service = selectedService;
+	[detailController setService:selectedService];
     [[self navigationController] pushViewController:detailController animated:YES];
     [detailController release];	
 }
 
-
-
-
 @end
-

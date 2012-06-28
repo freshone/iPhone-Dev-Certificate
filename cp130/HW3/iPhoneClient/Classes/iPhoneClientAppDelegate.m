@@ -8,7 +8,7 @@
 #import "iPhoneClientAppDelegate.h"
 #import "RootViewController.h"
 
-@interface iPhoneClientAppDelegate()<UIApplicationDelegate>
+@interface iPhoneClientAppDelegate()
 
 @property (nonatomic, retain) IBOutlet UINavigationController* navigationController;
 
@@ -29,8 +29,6 @@
 	return YES;
 }
 
-
-
 #pragma mark - Memory management
 
 - (void)dealloc
@@ -39,8 +37,6 @@
 	self.window = nil;
 	[super dealloc];
 }
-
-
 
 @end
 
