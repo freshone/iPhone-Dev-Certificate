@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import <sys/socket.h>
 #import <netinet/in.h>
 
 @implementation AppDelegate
@@ -170,6 +169,13 @@
 
 - (void)appendStringToLog:(NSString *)aString
 {
+    // This seems to cause a nasty crash
+    if(aString == nil)
+    {
+        NSLog(@"appendStringToLog passed a nil string");
+        return;
+    }
+    
     if([[[self logTextView] textStorage] length] > 0)
     {
         [[[self logTextView] textStorage] appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];

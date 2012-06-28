@@ -85,29 +85,17 @@
 
 - (void)connectToService
 {
-	// We assume the NSNetService has been resolved at this point
+	[[self service] getInputStream:NULL outputStream:&outputStream_];
 	
-	// NSNetService makes it easy for us to connect, we don't have to do any socket management
-    
-	[service_ getInputStream:NULL outputStream:&outputStream_];
-	
-	if ( outputStream_ != nil )
+	if(outputStream_ != nil)
 	{
-		[outputStream_ open];
-		statusLabel_.text = @"Connected to service.";
+		[[self outputStream] open];
+		[[self statusLabel] setText:@"Connected to service."];
 	}
 	else
 	{
-		statusLabel_.text = @"Could not connect to service";
+		[[self statusLabel] setText:@"Could not connect to service"];
 	}
-	
-	// if we wanted, we could scheudled notifcations or other run loop
-	// based reading of the input stream to get messages back from the
-	// service we connected to
-	
-    
-    // < ADD CODE HERE : statuaLabel to reflect if we connected or not. 
-    //    if we could not get the output stream, we could not connect >	
 }
 
 #pragma mark -
@@ -117,16 +105,15 @@
 {
 	if(self.outputStream == nil)
 	{
-		self.statusLabel.text = @"Failed to send message, not connected.";
+		[[self statusLabel] setText:@"Failed to send message, not connected."];
 		return;
 	}
 	
-	NSString* messageText = messageTextView_.text;
+	NSString* messageText = [[self messageTextView] text];
 	
 	const uint8_t*	messageBuffer = (const uint8_t*)[messageText UTF8String];
-	NSUInteger		length = [messageText lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-	[outputStream_ write:messageBuffer maxLength:length];
-	
+	NSUInteger length = [messageText lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+	[[self outputStream] write:messageBuffer maxLength:length];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
