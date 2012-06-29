@@ -51,7 +51,7 @@ NSString* const			kSearchDomain			= @"";
     [self setServices:[[NSMutableArray alloc] init]];
 	[self setBrowser:[[NSNetServiceBrowser alloc] init]];
     [[self browser] setDelegate:self];
-    [[self browser] searchForServicesOfType:kServiceTypeString inDomain:kSearchDomain];
+    [[self browser]  searchForServicesOfType:kServiceTypeString inDomain:kSearchDomain];
 	NSLog(@"Started browsing for services: %@", [[self browser] description]);
 }
 
@@ -67,7 +67,7 @@ NSString* const			kSearchDomain			= @"";
 	
     if (!moreComing)
 	{
-        [self.tableView reloadData];        
+        [self.tableView reloadData];
     }
 }
 
@@ -77,6 +77,7 @@ NSString* const			kSearchDomain			= @"";
 {
     NSLog(@"Removing service");
 	[[self services] removeObject:aNetService];
+    [self.tableView reloadData];
 }
 
 - (void)netServiceWillResolve:(NSNetService *)sender
@@ -170,21 +171,19 @@ NSString* const			kSearchDomain			= @"";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	
-	// if the selection was not resolved, try to resolve it again, but don't attempt
-	// to bring up the details
-	
 	NSNetService* selectedService = [self.services objectAtIndex:indexPath.row];
 	
-	// <ADD SOME CODE HERE : 
-	// if the selection was not resolved, try to resolve it again, but don't attempt
-	// to bring up the details >
-	
-    ServiceDetailController* detailController = [[ServiceDetailController alloc] initWithNibName:@"ServiceDetailController" bundle:nil];
-	
-	[detailController setService:selectedService];
-    [[self navigationController] pushViewController:detailController animated:YES];
-    [detailController release];	
+    if([[selectedService addresses] count] < 1)
+    {
+        [selectedService resolveWithTimeout:5.0];
+    }
+    else
+    {
+        ServiceDetailController* detailController = [[ServiceDetailController alloc] initWithNibName:@"ServiceDetailController" bundle:nil];
+        [detailController setService:selectedService];
+        [[self navigationController] pushViewController:detailController animated:YES];
+        [detailController release];	
+    }
 }
 
 @end
