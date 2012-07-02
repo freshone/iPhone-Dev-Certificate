@@ -133,7 +133,7 @@
 
 - (void) generateFractal
 {
-    if ( self.fractalInProgress )
+    if ([self fractalInProgress])
     {
         // Guard against starting a new fractal rendering while one
         // is already in progress. If you implement canceling, 
@@ -196,15 +196,6 @@
     
 	// create 1 generator per region
     
-    if([self generators])
-    {
-        [[self generators] release];
-    }
-    if([self fillOperations])
-    {
-        [[self fillOperations] release];
-    }
-    
     [self setGenerators:[[NSMutableArray arrayWithCapacity:generatorCount] retain]];
     [self setFillOperations:[[NSMutableArray arrayWithCapacity:generatorCount] retain]];
     NSInvocationOperation* finishOperation = [[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fractalOperationCompleted) object:nil] autorelease];
@@ -213,7 +204,7 @@
 	{
 		FractalGenerator* generator = [[[FractalGenerator alloc] init] autorelease];
 		
-		// setup the region the generator will draw into
+		// Setup the region the generator will draw into
 		generator.minimumX		= self.fractalControl.region.origin.x;
 		generator.minimumY		= maxY - deltaY;
 		generator.maximumX		= maxX;
@@ -235,62 +226,20 @@
         [fillOperations addObject:fillOperation];
     }
     
-    [[self opQueue] addOperation:finishOperation];
+    // Put the cleanup operation on the main thread
+    [[NSOperationQueue mainQueue] addOperation:finishOperation];
     [fillOperations addObject:finishOperation];
-    
-
-	// HW_TODO : 
-	//
-	// Change this synchronous, sequential computation that follows
-	// to instead use concurrent execution with NSOperations and NSOperationsQueues
-	//
-    // - Decide how you will divide up the work. How many operations and generators
-    //   will you have to compute a fractal?
-    //
-    
-    // - Decide if you want to use NSBlockOperation, NSInvocationOperation or a custom
-    //   sub-class of NSOperation
-    
- 	// - Have each generator perform its fill method
-	//   in the operation(s) that you queue
-    
-	// - Decide how you will know when the generation is complete
-    //   options include (but not limited to) :
-    //      completion block(s) for block operations
-    //      KVO to watch when an operation completes
-    //      explicit method call from concurrent operations to note completion
-    //      tracking how many generators are running and when it reaches zero, finished!
-    //   You might have to think about making sure that any UI updates
-    //   that happen because of completion should be on the main thread
-    //   any properties or methods your operations access on single instances of other
-    //   objects like this controller have to be thread-safe
-	//
-
-	// - don't update the FractalControl image until all the generators are finished
-	
-    
-	// - Only stop the progress indicator and re-enable the
-	//   controls when all the generators have finished 
-    //   you don't want to start computing another fractal while one is ongoing
-    //   if you do the bonus work, you can handle this better
-    //------------------------------------------------------------------------
 }
 
 - (void) fractalOperationCompleted
 {    
-    self.fractalInProgress = NO;
-    
-    float millisecondsElapsed = [self endTiming];
-    
-
-    [self appendStringToLog:[NSString stringWithFormat:@"Fractal rendering complete %5.2f milliseconds", millisecondsElapsed]];
-        
-    self.fractalControl.fractalBitmap	= self.fractalBitmap;        
-
+    [self setFractalInProgress:NO];
+    [self appendStringToLog:[NSString stringWithFormat:@"Fractal rendering complete %5.2f milliseconds", [self endTiming]]];
+    [[self fractalControl] setFractalBitmap:[self fractalBitmap]];
     [self updateForGenerationInProgress:NO];
+    [[self generators] release];
+    [[self fillOperations] release];
 }
-
-
 
 - (void) updateForGenerationInProgress:(BOOL)inProgress
 {
@@ -315,7 +264,6 @@
 	[self.zoomOutButton setEnabled:!disabled];
 	[self.resetButton setEnabled:!disabled];
 }
-
 
 - (void) startTiming
 {
@@ -361,13 +309,4 @@
 	return;
 }
 
-
-
-
-
 @end
-
-
-
-
-
