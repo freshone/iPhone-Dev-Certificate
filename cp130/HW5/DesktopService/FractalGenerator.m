@@ -65,7 +65,7 @@ const				double		kMagnitudeLimit			=	2.0f;
 
 - (void) fill
 {
-	
+	NSLog(@"fill beginning...");
 	if ( pixelBuffer_ == nil )
 	{
 		@throw [NSException exceptionWithName:@"FractalGenerator Exception" reason:@"pixelBuffer can not be nil" userInfo:nil];
@@ -100,6 +100,7 @@ const				double		kMagnitudeLimit			=	2.0f;
             ptr += 3;
         }
     }
+    NSLog(@"fill complete.");
 }
 
 

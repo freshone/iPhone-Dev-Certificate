@@ -32,6 +32,9 @@
 @property (assign)   uint64_t            startTime;
 @property (assign)   BOOL                fractalInProgress;
 
+@property (retain) NSOperationQueue* opQueue;
+@property (retain) NSMutableArray* generators;
+@property (retain) NSMutableArray* fillOperations;
 
 - (void) generateFractal;
 - (void) fractalOperationCompleted;
@@ -42,6 +45,7 @@
 - (void) updateForGenerationInProgress:(BOOL)inProgress;
 - (void) disableControls:(BOOL)disabled;
 
+- (void) debugCheck;
 
 @end
 
@@ -53,6 +57,10 @@
 //@synthesize listenService;
 @synthesize fractalBitmap, startTime;
 @synthesize fractalInProgress;
+
+@synthesize opQueue;
+@synthesize generators;
+@synthesize fillOperations;
 
 - (id)init
 {
@@ -79,8 +87,16 @@
 
 -(void) awakeFromNib
 {	
+    [self setOpQueue:[[[NSOperationQueue alloc] init] retain]];
 	[self.progressIndicator setHidden:YES];
 	[self generateFractal];
+    [self debugCheck];
+}
+
+- (void) debugCheck
+{
+    NSLog(@"fillOperations Size = %lu", self.fillOperations.count);
+    NSLog(@"generators Size = %lu", self.generators.count);
 }
 
 #pragma mark -
@@ -156,7 +172,7 @@
     NSUInteger generatorCount   = pixelsHigh;
         
     // Create the image rep the threaded generators will draw into	
-    self. fractalBitmap = [[NSBitmapImageRep alloc] 
+    self.fractalBitmap = [[NSBitmapImageRep alloc] 
 						    initWithBitmapDataPlanes:NULL
 						    pixelsWide:pixelsWide
 						    pixelsHigh:pixelsHigh
@@ -180,9 +196,20 @@
     
 	// create 1 generator per region
     
-    NSMutableArray* generators = [NSMutableArray arrayWithCapacity:generatorCount];
+    if([self generators])
+    {
+        [[self generators] release];
+    }
+    if([self fillOperations])
+    {
+        [[self fillOperations] release];
+    }
     
-    for (int i = 0; i < generatorCount; i++)
+    [self setGenerators:[[NSMutableArray arrayWithCapacity:generatorCount] retain]];
+    [self setFillOperations:[[NSMutableArray arrayWithCapacity:generatorCount] retain]];
+    NSInvocationOperation* finishOperation = [[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fractalOperationCompleted) object:nil] autorelease];
+    
+    for(int i = 0; i < generatorCount; i++)
 	{
 		FractalGenerator* generator = [[[FractalGenerator alloc] init] autorelease];
 		
@@ -201,8 +228,15 @@
         // Move to next region in bitmapData
         bitmap = bitmap + (pixelsWide * rowsPerGenerator * 3);
         
+        NSInvocationOperation* fillOperation = [[NSInvocationOperation alloc] initWithTarget:generator selector:@selector(fill) object:nil];
+        [finishOperation addDependency:fillOperation];
+        [[self opQueue] addOperation:fillOperation];
         [generators addObject:generator];
+        [fillOperations addObject:fillOperation];
     }
+    
+    [[self opQueue] addOperation:finishOperation];
+    [fillOperations addObject:finishOperation];
     
 
 	// HW_TODO : 
@@ -240,21 +274,6 @@
     //   you don't want to start computing another fractal while one is ongoing
     //   if you do the bonus work, you can handle this better
     //------------------------------------------------------------------------
-    
-    
-    // execute the generators in order, with no concurrecny.
-    // Note that the main thread will block here!
-    
-    for ( FractalGenerator* generator in generators)
-    {
-        [generator fill];
-    }
-    
-    // now update everything since we have finished rendering the fractal bitmap
-    // this will update the user interface
-    
-    [self fractalOperationCompleted];
-    
 }
 
 - (void) fractalOperationCompleted
