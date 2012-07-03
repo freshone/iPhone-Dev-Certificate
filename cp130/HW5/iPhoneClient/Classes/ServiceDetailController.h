@@ -10,7 +10,5 @@
 
 
 @interface ServiceDetailController : UIViewController
-
 @property (nonatomic, retain) NSNetService*	service;
-
 @end

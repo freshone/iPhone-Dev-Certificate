@@ -12,8 +12,8 @@
 #import <netinet/in.h>
 #include <netdb.h>
 
-NSString* const			kServiceTypeString		= @"_jdmlistener._tcp.";
-NSString* const			kSearchDomain			= @"";
+NSString* const kServiceTypeString = @"_jdmlistener._tcp.";
+NSString* const kSearchDomain = @"";
 
 @interface RootViewController()
 
@@ -42,7 +42,6 @@ NSString* const			kSearchDomain			= @"";
 
 @synthesize browser = browser_;
 @synthesize services = services_;
-
 
 #pragma mark -  NSNetService
 

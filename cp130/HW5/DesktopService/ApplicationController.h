@@ -10,14 +10,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FractalGenerator.h"
+#import "ListenerService.h"
 
 @class FractalControl;
 @class ListenService;
 
-@interface ApplicationController : NSObject
+@interface ApplicationController : NSObject <ListenerServiceDelegate>
 
 - (void) startService;
 - (void) appendStringToLog:(NSString*)logString;
-
 
 @end

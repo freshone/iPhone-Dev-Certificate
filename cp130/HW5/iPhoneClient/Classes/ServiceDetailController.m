@@ -10,17 +10,14 @@
 
 
 @interface ServiceDetailController ()
-
 @property (nonatomic, retain) IBOutlet UILabel*	statusLabel;
-@property (nonatomic, retain) IBOutlet UITextField*	messageTextView;
-
 @property (nonatomic, retain) NSOutputStream* outputStream;
-
-- (IBAction) sendMessage:(id)sender;
-
-- (void) connectToService;
-- (void) releaseStream;
-
+- (void)connectToService;
+- (void)releaseStream;
+- (void)sendMessage:(NSString*)messageText;
+- (IBAction)zoomInPushed:(id)sender;
+- (IBAction)zoomOutPushed:(id)sender;
+- (IBAction)resetPushed:(id)sender;
 @end
 
 @implementation ServiceDetailController
@@ -37,34 +34,27 @@
 
 #pragma mark - Private Properties
 
-@synthesize	service = service_;
-@synthesize statusLabel = statusLabel_;
-@synthesize messageTextView = messageTextView_;
-@synthesize outputStream = outputStream_;
+@synthesize	service = _service;
+@synthesize statusLabel = _statusLabel;
+@synthesize outputStream = _outputStream;
 
 #pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-	[self.messageTextView becomeFirstResponder];
-	self.messageTextView.returnKeyType = UIReturnKeySend;
-	self.messageTextView.enablesReturnKeyAutomatically = YES;
 	
-	if (self.service)
+	if([self service])
+    {
 		[self connectToService];
+    }
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
-	self.statusLabel = nil;
-	self.messageTextView = nil;
-	self.service = nil;
-    self.messageTextView = nil;
-    
+	[self setStatusLabel:nil];
+	[self setService:nil];
 	[self releaseStream];
 }
 
@@ -76,8 +66,8 @@
 
 - (void)releaseStream
 {
-	[self.outputStream close];
-	self.outputStream = nil;
+	[[self outputStream] close];
+	[self setOutputStream:nil];
 }
 
 #pragma mark -
@@ -85,46 +75,51 @@
 
 - (void)connectToService
 {
-	[[self service] getInputStream:NULL outputStream:&outputStream_];
+	[[self service] getInputStream:NULL outputStream:&_outputStream];
 	
-	if(outputStream_ != nil)
+	if(_outputStream != nil)
 	{
 		[[self outputStream] open];
 		[[self statusLabel] setText:@"Connected to service."];
 	}
 	else
 	{
-		[[self statusLabel] setText:@"Could not connect to service"];
+		[[self statusLabel] setText:@"Could not connect to service."];
 	}
 }
 
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)sendMessage:(id)sender
+- (void)sendMessage:(NSString*)messageText
 {
-	if(self.outputStream == nil)
+	if([self outputStream] == nil)
 	{
 		[[self statusLabel] setText:@"Failed to send message, not connected."];
 		return;
 	}
-	
-	NSString* messageText = [[self messageTextView] text];
-	
-	const uint8_t*	messageBuffer = (const uint8_t*)[messageText UTF8String];
+		
+	const uint8_t* messageBuffer = (const uint8_t*)[messageText UTF8String];
 	NSUInteger length = [messageText lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 	[[self outputStream] write:messageBuffer maxLength:length];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+#pragma mark -
+#pragma mark Button Push Actions
+
+- (IBAction)zoomInPushed:(id)sender
 {
-	[self sendMessage:textField];
-	return YES;
+    [self sendMessage:@"zoomIn"];
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+- (IBAction)zoomOutPushed:(id)sender
 {
-	return YES;
+    [self sendMessage:@"zoomOut"];
+}
+
+- (IBAction)resetPushed:(id)sender
+{
+    [self sendMessage:@"reset"];
 }
 
 @end

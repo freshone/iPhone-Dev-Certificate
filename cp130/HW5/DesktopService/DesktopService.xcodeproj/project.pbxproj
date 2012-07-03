@@ -12,6 +12,7 @@
 		018C92B311559ABF003349E5 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018C92B211559ABF003349E5 /* ApplicationController.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* DesktopServiceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* DesktopServiceAppDelegate.m */; };
+		3FCACA2E15A2C53B008AAEB2 /* ListenerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCACA2D15A2C53B008AAEB2 /* ListenerService.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -34,6 +35,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		3FCACA2C15A2C53B008AAEB2 /* ListenerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerService.h; sourceTree = "<group>"; };
+		3FCACA2D15A2C53B008AAEB2 /* ListenerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerService.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DesktopService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DesktopService-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* DesktopService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,6 +64,8 @@
 				0172F80911F4461E00AFAB0C /* FractalControl.m */,
 				0172F83A11F44DFB00AFAB0C /* FractalGenerator.h */,
 				0172F83B11F44DFB00AFAB0C /* FractalGenerator.m */,
+				3FCACA2C15A2C53B008AAEB2 /* ListenerService.h */,
+				3FCACA2D15A2C53B008AAEB2 /* ListenerService.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				018C92B311559ABF003349E5 /* ApplicationController.m in Sources */,
 				0172F80A11F4461E00AFAB0C /* FractalControl.m in Sources */,
 				0172F83C11F44DFB00AFAB0C /* FractalGenerator.m in Sources */,
+				3FCACA2E15A2C53B008AAEB2 /* ListenerService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
