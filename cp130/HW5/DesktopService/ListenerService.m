@@ -109,8 +109,8 @@
 
 - (void)readIncomingData:(NSNotification*) notification
 {
-    NSFileHandle*   readFileHandle  = [notification object];
-    NSData*         data            = [readFileHandle availableData];
+    NSFileHandle* readFileHandle = [notification object];
+    NSData* data = [readFileHandle availableData];
 
     // Check if we have everything
     if([data length] == 0)
@@ -123,12 +123,13 @@
     }
     else
     {
+        NSString* message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"Got a message: ");
-        NSLog(@"%@", [NSString stringWithUTF8String:[data bytes]]);
+        NSLog(@"%@", message);
         
         if([self delegate])
         {
-            [[self delegate] messageReceived:[NSString stringWithUTF8String:[data bytes]]];
+            [[self delegate] messageReceived:message];
         }
 
         // wait for a read again

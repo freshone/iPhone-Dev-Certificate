@@ -16,14 +16,13 @@ NSString* const kServiceTypeString = @"_jdmlistener._tcp.";
 NSString* const kSearchDomain = @"";
 
 @interface RootViewController()
-
 @property (nonatomic, retain) NSNetServiceBrowser* browser;
 @property (nonatomic, retain) NSMutableArray* services;	
-
 @end
 
 @implementation RootViewController
-
+@synthesize browser = browser_;
+@synthesize services = services_;
 
 #pragma mark - Memory management
 
@@ -37,11 +36,6 @@ NSString* const kSearchDomain = @"";
     [self setServices:nil];
     [super dealloc];
 }
-
-#pragma mark - Private Properties
-
-@synthesize browser = browser_;
-@synthesize services = services_;
 
 #pragma mark -  NSNetService
 
@@ -66,17 +60,17 @@ NSString* const kSearchDomain = @"";
 	
     if (!moreComing)
 	{
-        [self.tableView reloadData];
+        [[self tableView] reloadData];
     }
 }
 
-- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser 
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
          didRemoveService:(NSNetService *)aNetService 
                moreComing:(BOOL)moreComing 
 {
     NSLog(@"Removing service");
 	[[self services] removeObject:aNetService];
-    [self.tableView reloadData];
+    [[self tableView] reloadData];
 }
 
 - (void)netServiceWillResolve:(NSNetService *)sender
@@ -133,7 +127,7 @@ NSString* const kSearchDomain = @"";
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	NSNetService* service = [self.services objectAtIndex:indexPath.row];
+	NSNetService* service = [[self services] objectAtIndex:indexPath.row];
 	NSArray* addresses = [service addresses];
 	
 	if ([addresses count] == 0)
@@ -170,7 +164,7 @@ NSString* const kSearchDomain = @"";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSNetService* selectedService = [self.services objectAtIndex:indexPath.row];
+	NSNetService* selectedService = [[self services] objectAtIndex:indexPath.row];
 	
     if([[selectedService addresses] count] < 1)
     {

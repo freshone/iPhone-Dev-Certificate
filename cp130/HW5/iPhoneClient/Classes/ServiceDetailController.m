@@ -26,9 +26,8 @@
 
 - (void)dealloc
 {
-	self.service = nil;
+    [self setService:nil];
 	[self releaseStream];
-    
     [super dealloc];
 }
 
@@ -98,7 +97,7 @@
 		[[self statusLabel] setText:@"Failed to send message, not connected."];
 		return;
 	}
-		
+    
 	const uint8_t* messageBuffer = (const uint8_t*)[messageText UTF8String];
 	NSUInteger length = [messageText lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 	[[self outputStream] write:messageBuffer maxLength:length];
