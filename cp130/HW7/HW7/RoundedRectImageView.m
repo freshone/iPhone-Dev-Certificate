@@ -37,15 +37,9 @@
     
     // Draw shadow
     [self setRoundedPath:[[UIBezierPath bezierPathWithRoundedRect:shadow cornerRadius:[self cornerRadius]] CGPath]];
-    //CGContextAddPath(context, [self roundedPath]);
-    //CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:0.3f green:0.3f blue:0.3f alpha:0.8f] CGColor]);
-    //CGContextSetLineWidth(context, [self borderWidth]);
-    //CGContextStrokePath(context);
-    
     CGContextAddPath(context, [self roundedPath]);
     CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:0.3f green:0.3f blue:0.3f alpha:0.8f] CGColor]);
     CGContextFillPath(context);
-
     
     // Draw border
     [self setRoundedPath:[[UIBezierPath bezierPathWithRoundedRect:border cornerRadius:[self cornerRadius]] CGPath]];
