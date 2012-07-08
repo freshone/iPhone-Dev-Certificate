@@ -15,6 +15,7 @@
 		3FE9396915A977F6009679D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9396815A977F6009679D5 /* AppDelegate.m */; };
 		3FE9396C15A977F6009679D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9396B15A977F6009679D5 /* ViewController.m */; };
 		3FE9396F15A977F7009679D5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE9396D15A977F7009679D5 /* ViewController.xib */; };
+		3FE9397615A97F53009679D5 /* diablo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE9397515A97F53009679D5 /* diablo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +23,16 @@
 		3FE9395815A977F6009679D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3FE9395A15A977F6009679D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FE9395C15A977F6009679D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3FE9396015A977F6009679D5 /* HW7-Info.plist */ = {isa = PBXFileReference; path = "HW7-Info.plist"; sourceTree = "<group>"; };
+		3FE9396015A977F6009679D5 /* HW7-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HW7-Info.plist"; sourceTree = "<group>"; };
 		3FE9396215A977F6009679D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FE9396415A977F6009679D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3FE9396615A977F6009679D5 /* HW7-Prefix.pch */ = {isa = PBXFileReference; path = "HW7-Prefix.pch"; sourceTree = "<group>"; };
-		3FE9396715A977F6009679D5 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3FE9396615A977F6009679D5 /* HW7-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HW7-Prefix.pch"; sourceTree = "<group>"; };
+		3FE9396715A977F6009679D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FE9396815A977F6009679D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3FE9396A15A977F6009679D5 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		3FE9396A15A977F6009679D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3FE9396B15A977F6009679D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3FE9396E15A977F7009679D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		3FE9397515A97F53009679D5 /* diablo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diablo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		3FE9395F15A977F6009679D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FE9397515A97F53009679D5 /* diablo.png */,
 				3FE9396015A977F6009679D5 /* HW7-Info.plist */,
 				3FE9396115A977F6009679D5 /* InfoPlist.strings */,
 				3FE9396415A977F6009679D5 /* main.m */,
@@ -150,6 +153,7 @@
 			files = (
 				3FE9396315A977F6009679D5 /* InfoPlist.strings in Resources */,
 				3FE9396F15A977F7009679D5 /* ViewController.xib in Resources */,
+				3FE9397615A97F53009679D5 /* diablo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
